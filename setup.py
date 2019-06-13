@@ -5,33 +5,41 @@ Setup for Coin Metrics API.
 
 from setuptools import setup
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 setup(
-	name='Coin Metrics API',
+	name='Coin Metrics API for Python',
 	version='1.0.0',
 	author="Robert Rice",
 	author_email="h4110w33n@gmail.com",
-	url='',
-	description='',
-	long_description='',
+	url='https://github.com/h4110w33n/coinmetrics',
+	description='A library to standardize queries to the Coin Metrics (coinmetrics.io) API.',
+	long_description='A library to standardize queries to the Coin Metrics (coinmetrics.io) API.',
 	keywords=['coinmetrics', 'crypto', 'cryptocurrency', 'rest', 'api'],
 	classifiers=[
-		'Development Status :: 5 - Production/Stable',
-		'Environment :: Console',
+		'Development Status :: 3 - Alpha',
 		'Intended Audience :: Developers',
-		'Intended Audience :: End Users/Desktop',
+		'Intended Audience :: Education',
+		'Intended Audience :: Financial and Insurance Industry',
+		'Intended Audience :: Information Technology',
 		'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
-		'Operating System :: Microsoft :: Windows',
-		'Operating System :: POSIX :: Linux',
+		'Operating System :: OS Independent',
 		'Programming Language :: Python :: 3.3',
 		'Programming Language :: Python :: 3.4',
 		'Programming Language :: Python :: 3.5',
 		'Programming Language :: Python :: 3.6',
 		'Programming Language :: Python :: 3.7',
 		'Programming Language :: Python',
+		'Topic :: Internet :: WWW/HTTP :: Indexing/Search',
+		'Topic :: Scientific/Engineering :: Information Analysis',
+		'Topic :: Scientific/Engineering :: Mathematics'
+		'Topic :: Software Development :: Libraries :: Python Modules',
+
 	],
-	requires=['requests'],
+	requires=requirements,
 	install_requires=['requests'],
-	provides=['nielsen'],
+	provides=['coinmetrics'],
 	entry_points={
 		'console_scripts': ['coinmetrics=bin.cli:main'],
 	},
