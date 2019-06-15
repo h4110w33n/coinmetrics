@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
-
-# TODO: Docs - Sphinx Style - http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
 # TODO: Tests - More than just a dumb file
-# TODO: Makefile
 # TODO: CI
 # TODO: PyPI
 
@@ -20,7 +17,7 @@ class community(object):
 
 	def __init__(self):
 		"""
-		The community object definition
+		The Community API object definition
 		"""
 		self.logger = logging.getLogger(__name__)
 		self.host_url = HOST_URL
@@ -49,8 +46,6 @@ class community(object):
 			print("ERROR: Not a valid method.")
 		response = requests.get(request_url).content.decode('utf-8')
 		return json.loads(response, parse_float=Decimal, parse_int=Decimal)
-
-	# Base API
 
 	def get_supported_assets(self):
 		"""
@@ -471,7 +466,9 @@ class community(object):
 			raise InvalidTimeRangeError
 
 class Error(Exception):
-	"""Base class for other exceptions."""
+	"""
+	Base class for other exceptions.
+	"""
 	pass
 
 class InvalidAssetError(Error):
