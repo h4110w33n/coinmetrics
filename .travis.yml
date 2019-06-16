@@ -1,0 +1,17 @@
+language: python
+matrix:
+  include:
+    - name: "Ubuntu 16.04 LTS"
+      python: 3.7
+      dist: xenial
+    - name: "macOS 10.14"
+      os: osx
+      osx_image: xcode10.2
+      language: shell
+    - name: "Windows 10"
+      os: windows
+      language: shell
+      before_install: choco install python
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+install: pip3 install -r requirements.txt
+script: python3 test.py || python test.py

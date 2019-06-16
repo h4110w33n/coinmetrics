@@ -103,7 +103,6 @@ class CommunityAPITests(unittest.TestCase):
 		with self.assertRaises(coinmetrics.api.InvalidAssetError):
 			CM.get_available_data_types_for_asset(INVALID_ASSET)
 		LOG.debug("\t[1]Error raised: Case 1 PASS")
-
 		LOG.debug("\n\t[2]Function: get_asset_data_for_time_range(INVALID_ASSET, DATA_TYPE, BEGIN_TIMESTAMP, END_TIMESTAMP)")
 		LOG.debug("\t[2]Argument: INVALID_ASSET = '%s'", INVALID_ASSET)
 		LOG.debug("\t[2]Argument: DATA_TYPE = '%s'", DATA_TYPE)

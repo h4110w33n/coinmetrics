@@ -29,4 +29,4 @@ docs-clean: Makefile
 	@rm -rf "$(BUILDDIR)"
 
 test: Makefile
-	python $(TESTSCRIPT)
+	python3 $(TESTSCRIPT) || python $(TESTSCRIPT)
