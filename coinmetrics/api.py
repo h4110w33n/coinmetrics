@@ -1,20 +1,24 @@
 # -*- coding: utf-8 -*-
 
-# TODO: Tests - More than just a dumb file
-# TODO: CI
-# TODO: PyPI
+"""
+Coin Metrics API Module Definitions
+"""
 
-import urllib.parse
-import requests
-import json
 from decimal import Decimal
+import json
 import logging
+import requests
 
 HOST_URL = 'https://coinmetrics.io/api/v1/'
 METHODS = ['get_supported_assets', 'get_available_data_types_for_asset', 'get_asset_data_for_time_range']
 
-class community(object):
+class Community():
+	"""
+	Community API object
+	"""
 
+	# Due to the conveniance methods, we trigger R0904: too-many-public-methods even though this is desired.
+	# pylint: disable=R0904
 	def __init__(self):
 		"""
 		The Community API object definition
@@ -469,23 +473,18 @@ class Error(Exception):
 	"""
 	Base class for other exceptions.
 	"""
-	pass
 
 class InvalidAssetError(Error):
 	"""
 	Raise an error when the given asset doesn't exist.
 	"""
-	pass
 
 class InvalidDataTypeError(Error):
 	"""
 	Raise and error when the given data_type doesn't exist for the specified asset.
 	"""
-	pass
 
 class InvalidTimeRangeError(Error):
 	"""
 	Raise and error when the given time range is not-sane (i.e. end before start).
 	"""
-	pass
-

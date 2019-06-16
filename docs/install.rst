@@ -18,3 +18,5 @@ Manual Install
   git clone https://github.com/h4110w33n/coinmetrics
   cd coinmetrics
   python setup.py install
+
+Now that you have everything installed, you can refer to the _usage page for some code snippets.

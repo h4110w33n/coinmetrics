@@ -10,15 +10,15 @@ with open('requirements.txt') as f:
 
 setup(
 	name='Coin Metrics API for Python',
-	version='1.0.0',
+	version='0.1.0',
 	author="Robert Rice",
 	author_email="h4110w33n@gmail.com",
 	url='https://github.com/h4110w33n/coinmetrics',
-	description='A library to standardize queries to the Coin Metrics (coinmetrics.io) API.',
-	long_description='A library to standardize queries to the Coin Metrics (coinmetrics.io) API.',
+	description='An unofficial library to standardize queries to the Coin Metrics (coinmetrics.io) API.',
+	long_description='An unofficial library to standardize queries to the Coin Metrics (coinmetrics.io) API.',
 	keywords=['coinmetrics', 'crypto', 'cryptocurrency', 'rest', 'api'],
 	classifiers=[
-		'Development Status :: 3 - Alpha',
+		'Development Status :: 4 - Beta ',
 		'Intended Audience :: Developers',
 		'Intended Audience :: Education',
 		'Intended Audience :: Financial and Insurance Industry',
@@ -35,15 +35,10 @@ setup(
 		'Topic :: Scientific/Engineering :: Information Analysis',
 		'Topic :: Scientific/Engineering :: Mathematics'
 		'Topic :: Software Development :: Libraries :: Python Modules',
-
 	],
 	requires=requirements,
-	install_requires=['requests'],
+	install_requires=requirements,
 	provides=['coinmetrics'],
-	entry_points={
-		'console_scripts': ['coinmetrics=bin.cli:main'],
-	},
-	platforms='linux',
 	license='GNU General Public License v3 (GPLv3)',
 	packages=['coinmetrics'],
 )

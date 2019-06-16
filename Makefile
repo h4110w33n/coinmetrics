@@ -6,10 +6,17 @@ BUILDDIR      = build
 # Test options
 TESTSCRIPT    ?= test.py
 
-help:
-	echo "Options: docs"
+.PHONY: test Makefile docs-clean docs prep help
 
-.PHONY: test help Makefile docs-clean docs prep
+help:
+	@echo "Available Options:"
+	@echo "    lint: lint evertyhing in the coinmetrics directory."
+	@echo "    docs: build the RST documentation for RTD."
+	@echo "    docs-clean: wipe docs clean."
+	@echo "    test: execute unit test in \`$(TESTSCRIPT)\`"
+
+lint:
+	pylint coinmetrics/*.py
 
 prep:
 	mkdir -p "$(BUILDDIR)"

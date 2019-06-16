@@ -7,11 +7,11 @@ Usage
   
   # API Setup #################################################################
 
-  # Import the community API
-  from coinmetrics import community
+  # Import the API
+  import coinmetrics
 
-  # Initialize a reference object, in this case `cm`
-  cm = community()
+  # Initialize a reference object, in this case `cm` for the Community API
+  cm = coinmetrics.Community()
 
   # Usage Examples ############################################################
 
