@@ -15,5 +15,5 @@ This project's official documentation is hosted on Read the Docs HERE (TODO: Add
 
 Like this project? Help fund others like it.
 
-BTC: bc1qf523ue5xdzxqpgt4nnmpj78d2snzqf3n7s0rmd
-USD: [PayPal Donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=NBK3S2YT92NVJ&currency_code=USD&source=url)
+* __BTC:__ bc1qf523ue5xdzxqpgt4nnmpj78d2snzqf3n7s0rmd
+* __USD:__ [PayPal Donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=NBK3S2YT92NVJ&currency_code=USD&source=url)
