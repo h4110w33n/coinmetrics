@@ -2,14 +2,14 @@
 """
 Setup for Coin Metrics API.
 """
-
+import os
 from setuptools import setup
 
 with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
+    required = f.read().splitlines()
 
 setup(
-	name='Coin Metrics API for Python',
+	name='coinmetrics',
 	version='0.1.0',
 	author="Robert Rice",
 	author_email="h4110w33n@gmail.com",
@@ -33,11 +33,10 @@ setup(
 		'Programming Language :: Python',
 		'Topic :: Internet :: WWW/HTTP :: Indexing/Search',
 		'Topic :: Scientific/Engineering :: Information Analysis',
-		'Topic :: Scientific/Engineering :: Mathematics'
+		'Topic :: Scientific/Engineering :: Mathematics',
 		'Topic :: Software Development :: Libraries :: Python Modules',
 	],
-	requires=requirements,
-	install_requires=requirements,
+	install_requires=required,
 	provides=['coinmetrics'],
 	license='GNU General Public License v3 (GPLv3)',
 	packages=['coinmetrics'],

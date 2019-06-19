@@ -14,6 +14,7 @@ help:
 	@echo "    docs: build the RST documentation for RTD."
 	@echo "    docs-clean: wipe docs clean."
 	@echo "    test: execute unit test in \`$(TESTSCRIPT)\`"
+	@echo "    release: test then upload our library."	
 
 lint:
 	pylint coinmetrics/*.py
@@ -30,3 +31,6 @@ docs-clean: Makefile
 
 test: Makefile
 	python3 $(TESTSCRIPT) || python $(TESTSCRIPT)
+
+release:
+	python setup.py sdist bdist_wheel

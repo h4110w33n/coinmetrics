@@ -1,5 +1,7 @@
 Coin Metrics API for Python
 ===========================
+[![Documentation Status](https://readthedocs.org/projects/coinmetrics/badge/?version=latest)](https://coinmetrics.readthedocs.io/en/latest/?badge=latest)
+[![Build Status](https://travis-ci.org/h4110w33n/coinmetrics.svg?branch=master)](https://travis-ci.org/h4110w33n/coinmetrics)
 
 An unofficial Python module for interacting with the Coin Metrics (coinmetrics.io) API. Currently, this library only impliments the [Community API](https://coinmetrics.io/api/). The [Pro APIs](https://coinmetrics.io/cm-network-data-pro/) will be available in a later release.
 
