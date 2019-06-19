@@ -1,27 +1,22 @@
-stages:
-  - test
-  - docs
-jobs:
-  - name: test
-    language: python
-    matrix:
-      include:
-        - name: "Ubuntu 16.04 LTS"
-          python: 3.7
-          dist: xenial
-        - name: "macOS 10.14"
-          os: osx
-          osx_image: xcode10.2
-          language: shell
-        - name: "Windows 10"
-          os: windows
-          language: shell
-          before_install: choco install python
-          env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
-    install: pip3 install -r requirements.txt
-    script: make test
-  - name: docs
-    python: 3.7
-    install: pip3 install -r docs/requirements.txt
-    script: make docs
-    
+language: python
+matrix:
+  include:
+    - name: "Python 3.7.1 on Xenial Linux"
+      python: 3.7
+      dist: xenial
+    - name: "Python 3.7.2 on macOS"
+      os: osx
+      osx_image: xcode10.2
+      language: shell
+    - name: "Python 3.7.3 on Windows"
+      os: windows
+      language: shell
+      before_install: choco install python make
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+install: pip3 install -r requirements.txt
+script: make test
+
+
+
+
+
