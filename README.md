@@ -5,11 +5,11 @@ An unofficial Python module for interacting with the Coin Metrics (coinmetrics.i
 
 ### Getting Started
 
-This project's official documentation is hosted on Read the Docs HERE (TODO: Add Link to RTD). Below are some direct links to get you started.
+This project's official documentation is hosted on [Read the Docs](https://coinmetrics.readthedocs.io/en/latest/index.html). Below are some direct links to get you started.
 
-* __Install:__ TODO: Link to Install
-* __API Reference:__ TODO: Link to API Ref
-* __Usage:__ TODO: Link to Usage
+* [Install](https://coinmetrics.readthedocs.io/en/latest/install.html)
+* [API Reference](https://coinmetrics.readthedocs.io/en/latest/api_ref.html)
+* [Usage](https://coinmetrics.readthedocs.io/en/latest/usage.html)
 
 ### Donations
 
