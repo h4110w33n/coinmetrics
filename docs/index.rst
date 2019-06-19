@@ -7,7 +7,7 @@ This API for Python 3 provides a convenient interface for developers wanting to 
 
 - The code supporting this can be on Github_.
 - Batteries (i.e. Python :ref:`api_ref` and :ref:`usage` examples) are included.
-- Manual :ref:`installation` is the only option currently; however, PyPI is currently underway.
+- Setup instructions are provided on the :ref:`installation` page.
 
 .. _Github: https://github.com/h4110w33n/coinmetrics
 
