@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 
 """
-Coin Metrics API Module
+Coin Metrics API Module Includes
 """
-from coinmetrics.api import Community
 
-from coinmetrics.api import (
-	Error,
-	InvalidAssetError,
-	InvalidDataTypeError,
-	InvalidTimeRangeError
-)
-__all__ = ['api']
+from .base import Base
+from .community import Community
+from .legacy import CommunityLegacy
+from .pro import Pro
+from .utils import Utils

@@ -1,20 +1,24 @@
 # -*- coding: utf-8 -*-
 
 """
-Coin Metrics API Module Definitions
+Coin Metrics Legacy Community API Module Definitions
 """
 
 from decimal import Decimal
 import json
 import logging
 import requests
+from .errors import (
+	Error,
+	InvalidAssetError,
+	InvalidTimeRangeError,
+	InvalidDataTypeError,
+)
 
-HOST_URL = 'https://coinmetrics.io/api/v1/'
-METHODS = ['get_supported_assets', 'get_available_data_types_for_asset', 'get_asset_data_for_time_range']
 
-class Community():
+class CommunityLegacy():
 	"""
-	Community API object
+	Community APIv1 object
 	"""
 
 	# Due to the conveniance methods, we trigger R0904: too-many-public-methods even though this is desired.
@@ -24,8 +28,8 @@ class Community():
 		The Community API object definition
 		"""
 		self.logger = logging.getLogger(__name__)
-		self.host_url = HOST_URL
-		self.methods = set(METHODS)
+		self.host_url = 'https://coinmetrics.io/api/v1/'
+		self.methods = set(['get_supported_assets', 'get_available_data_types_for_asset', 'get_asset_data_for_time_range'])
 
 	def _api_query(self, method, *options):
 		"""
@@ -469,22 +473,7 @@ class Community():
 			self.logger.debug("End Timestamp: '%s'", end_timestamp)
 			raise InvalidTimeRangeError
 
-class Error(Exception):
-	"""
-	Base class for other exceptions.
-	"""
 
-class InvalidAssetError(Error):
-	"""
-	Raise an error when the given asset doesn't exist.
-	"""
 
-class InvalidDataTypeError(Error):
-	"""
-	Raise and error when the given data_type doesn't exist for the specified asset.
-	"""
 
-class InvalidTimeRangeError(Error):
-	"""
-	Raise and error when the given time range is not-sane (i.e. end before start).
-	"""
+

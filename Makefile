@@ -5,8 +5,9 @@ SOURCEDIR     = docs
 BUILDDIR      = build
 # Test options
 TESTSCRIPT    ?= test.py
+LEGTESTSCRIPT ?= test-legacy.py
 
-.PHONY: test Makefile docs-clean docs prep help
+.PHONY: test test-legacy Makefile docs-clean docs prep help
 
 help:
 	@echo "Available Options:"
@@ -31,6 +32,9 @@ docs-clean: Makefile
 
 test: Makefile
 	python3 $(TESTSCRIPT) || python $(TESTSCRIPT)
+
+test-legacy: Makefile
+	python3 $(LEGTESTSCRIPT) || python $(LEGTESTSCRIPT)
 
 release:
 	python setup.py sdist bdist_wheel
