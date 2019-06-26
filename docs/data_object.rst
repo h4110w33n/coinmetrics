@@ -3,9 +3,6 @@
 Data Object
 -----------
 
-The data object returned the API has a specific structure that 
+The data object returned the API has a specific structure that is returned when calling any of the :samp:`*_data` methods.
 
-- :py:func:`get_metric_data`
-- :py:func:`asdd`
-- :py:func:`asdd`
-- :py:func:`asdd`
+TODO: Finish this doc

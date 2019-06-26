@@ -148,25 +148,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "AdrActCnt", start, end)
 
 	#: An alias for :py:func:`get_active_addresses`
-	active_addresses, activeaddresses = [get_active_addresses] * 2
+	active_addresses, activeaddresses, AdrActCnt = [get_active_addresses] * 3
 
 	def get_block_count(self, assets, start, end):
 		"""
@@ -178,25 +165,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "BlkCnt", start, end)
 
 	#: An alias for :py:func:`get_block_count`
-	block_count, blockcount = [get_block_count] * 2
+	block_count, blockcount, BlkCnt = [get_block_count] * 3
 
 	def get_mean_block_size(self, assets, start, end):
 		"""
@@ -205,25 +179,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "BlkSizeMeanByte", start, end)
 
 	#: An alias for :py:func:`get_mean_block_size`
-	get_meanblocksize, meanblocksize = [get_mean_block_size] * 2
+	get_meanblocksize, meanblocksize, BlkSizeMeanByte = [get_mean_block_size] * 3
 
 	def get_mvrv_cur(self, assets, start, end):
 		"""
@@ -232,25 +193,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "CapMVRVCur", start, end)
 
 	#: An alias for :py:func:`get_mvrv_cur`
-	get_mvrvcur, mvrvcur = [get_mvrv_cur] * 2
+	get_mvrvcur, mvrvcur, CapMVRVCur = [get_mvrv_cur] * 3
 
 	def get_real_cap(self, assets, start, end):
 		"""
@@ -260,25 +208,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "CapRealUSD", start, end)
 
 	#: An alias for :py:func:`get_real_cap`
-	get_realcap, real_cap = [get_real_cap] * 2
+	get_realcap, real_cap, CapRealUSD = [get_real_cap] * 3
 
 	def get_diff_mean(self, assets, start, end):
 		"""
@@ -292,52 +227,26 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "DiffMean", start, end)
 
 	#: An alias for :py:func:`get_diff_mean`
-	get_diffmean, diff_mean = [get_diff_mean] * 2
+	get_diffmean, diff_mean, DiffMean = [get_diff_mean] * 3
 
-	def get_mean_fee(self, assets, start, end):
+	def get_fee_mean(self, assets, start, end):
 		"""
 		The USD value of the mean fee per transaction that day. 
 		See: `Data Dictionary`_.
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "FeeMeanUSD", start, end)
 
-	#: An alias for :py:func:`get_mean_fee`
-	get_meanfee, mean_fee = [get_mean_fee] * 2
+	#: An alias for :py:func:`get_fee_mean`
+	get_feemean, fee_mean, FeeMeanUSD = [get_fee_mean] * 3
 
 	def get_median_fee(self, assets, start, end):
 		"""
@@ -346,25 +255,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "FeeMedUSD", start, end)
 
 	#: An alias for :py:func:`get_median_fee`
-	get_medianfee, median_fee = [get_median_fee] * 2
+	get_medianfee, median_fee, FeeMedUSD = [get_median_fee] * 3
 
 	def get_fee_total(self, assets, start, end):
 		"""
@@ -373,27 +269,14 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "FeeTotUSD", start, end)
 
 	#: An alias for :py:func:`get_fee_total`
-	get_feetotal, fee_total = [get_fee_total] * 2
+	get_feetotal, fee_total, FeeTotUSD = [get_fee_total] * 3
 
-	def get_issued_nat(self, assets, start, end):
+	def get_units_issued(self, assets, start, end):
 		"""
 		The sum of new native units issued that day. Only those
 		native units that are issued by a protocol-mandated
@@ -402,27 +285,14 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "IssContNtv", start, end)
 
-	#: An alias for :py:func:`get_issued_nat`
-	get_unitsissued, units_issued = [get_issued_nat] * 2
+	#: An alias for :py:func:`get_issued`
+	get_unitsissued, units_issued, IssContNtv = [get_units_issued] * 3
 
-	def get_issued_ann_pct(self, assets, start, end):
+	def get_units_issued_ann_pct(self, assets, start, end):
 		"""
 		The percentage of new native units (continuous) issued on
 		that day, extrapolated to one year (i.e., multiplied by 365),
@@ -431,52 +301,26 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "IssContPctAnn", start, end)
 
-	#: An alias for :py:func:`get_issued_ann_pct`
-	get_unitsannpct, units_ann_pct = [get_issued_ann_pct] * 2
+	#: An alias for :py:func:`get_units_issued_ann_pct`
+	get_unitsannpct, units_ann_pct, IssContPctAnn = [get_units_issued_ann_pct] * 3
 
-	def get_issued_usd(self, assets, start, end):
+	def get_units_issued_usd(self, assets, start, end):
 		"""
 		The sum USD value of all new native units issued that day.
 		See: `Data Dictionary`_.
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "IssTotUSD", start, end)
 
-	#: An alias for :py:func:`get_issued_usd`
-	get_issuedusd, issued_usd = [get_issued_usd] * 2
+	#: An alias for :py:func:`get_units_issued_usd`
+	get_unitsissuedusd, units_issued_usd, IssTotUSD = [get_units_issued_usd] * 3
 
 	def get_nvt_adj(self, assets, start, end):
 		"""
@@ -486,25 +330,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "NVTAdj", start, end)
 
 	#: An alias for :py:func:`get_nvt_adj`
-	get_nvtadj, nvt_adj = [get_nvt_adj] * 2
+	get_nvtadj, nvt_adj, NVTAdj = [get_nvt_adj] * 3
 
 	def get_nvt_adj_90(self, assets, start, end):
 		"""
@@ -514,25 +345,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "NVTAdj90", start, end)
 
 	#: An alias for :py:func:`get_nvt_adj_90`
-	get_nvtadj90, nvt_adj_90 = [get_nvt_adj_90] * 2
+	get_nvtadj90, nvt_adj_90, NVTAdj90 = [get_nvt_adj_90] * 3
 
 	def get_price_btc(self, assets, start, end):
 		"""
@@ -543,25 +361,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "PriceBTC", start, end)
 
 	#: An alias for :py:func:`get_price_btc`
-	get_pricebtc, price_btc = [get_price_btc] * 2
+	get_pricebtc, price_btc, NVTAdj90 = [get_price_btc] * 3
 
 	def get_price_usd(self, assets, start, end):
 		"""
@@ -571,25 +376,12 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "PriceUSD", start, end)
 
 	#: An alias for :py:func:`get_price_usd`
-	get_priceusd, price_usd = [get_price_usd] * 2
+	get_priceusd, price_usd, PriceUSD = [get_price_usd] * 3
 
 	def get_cur_sply(self, assets, start, end):
 		"""
@@ -600,26 +392,13 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		
 		return self.get_metric_data(assets, "SplyCur", start, end)
 
 	#: An alias for :py:func:`get_cur_sply`
-	get_cursply, cur_sply = [get_cur_sply] * 2
+	get_cursply, cur_sply, PriceUSD = [get_cur_sply] * 3
 
 	def get_tx_count(self, assets, start, end):
 		"""
@@ -629,28 +408,15 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		
 		return self.get_metric_data(assets, "TxCnt", start, end)
 
 	#: An alias for :py:func:`get_tx_count`
-	get_txcount, tx_count = [get_tx_count] * 2
+	get_txcount, tx_count, TxCnt = [get_tx_count] * 3
 
-	def get_txfr_count(self, assets, start, end):
+	def get_txtfr_count(self, assets, start, end):
 		"""
 		The sum count of transfers that day. Transfers represent
 		movements of native units from one ledger entity to another
@@ -658,59 +424,168 @@ class Community(Base):
 
 		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-		:param assets: Unique ID corresponding to the asset's ticker.
-		:type assets: str
-
-		:param metrics: Unique ID corresponding to the metrics.
-		:type metrics: str
-
-		:param begin_timestamp: Start of time inverval.
-		:type begin_timestamp: str or datetime
-
-		:param end_timestamp: End of time inverval.
-		:type end_timestamp: str or datetime
-
-		:return: Coin Metrics API data object. See: :ref:`data_object`
-		:rtype: dict
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
 		"""
 		return self.get_metric_data(assets, "TxTfr", start, end)
 
-	#: An alias for :py:func:`get_txfr_count`
-	get_txfrcount, txfr_count = [get_txfr_count] * 2
+	#: An alias for :py:func:`get_txtfr_count`
+	get_txtfrcount, txtfr_count, TxTfr = [get_txtfr_count] * 3
+	
+	def get_txtfr_val_adj(self, assets, start, end):
+		"""
+		The sum of native units transferred that day removing noise and
+		certain artifacts. See: `Data Dictionary`_.
 
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-# TODO: These vvvvvvv
-# TxTfrValAdjNtv
-# TxTfrValAdjUSD
-# TxTfrValMeanNtv
-# TxTfrValMeanUSD
-# TxTfrValMedNtv
-# TxTfrValMedUSD
-# TxTfrValNtv
-# TxTfrValUSD
-# VtyDayRet180d
-# VtyDayRet30d
-# VtyDayRet60d
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "TxTfrValAdjNtv", start, end)
 
+	#: An alias for :py:func:`get_txtfr_val_adj`
+	get_txtfrvaladj, txtfr_val_adj, TxTfrValAdjNtv = [get_txtfr_val_adj] * 3
 
+	def get_txtfr_val_adj_usd(self, assets, start, end):
+		"""
+		The USD value of the sum of native units transferred that day removing
+		noise and certain artifacts. See: `Data Dictionary`_.
 
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "TxTfrValAdjUSD", start, end)
 
+	#: An alias for :py:func:`get_txtfr_val_adj_usd`
+	get_txtfrvaladj, txtfr_val_adj, TxTfrValAdjUSD = [get_txtfr_val_adj] * 3
 
+	def get_txtfr_val_mean(self, assets, start, end):
+		"""
+		The mean count of native units transferred per transaction 
+		(i.e., the mean "size" of a transaction) that day. 
+		See: `Data Dictionary`_.
 
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "TxTfrValMeanNtv", start, end)
 
+	#: An alias for :py:func:`get_txtfr_val_mean`
+	get_txtfrvalmean, txtfr_val_mean, TxTfrValMeanNtv = [get_txtfr_val_mean] * 3
 
+	def get_txtfr_val_mean_usd(self, assets, start, end):
+		"""
+		The sum USD value of native units transferred divided by
+		the count of transfers (i.e., the mean "size" in USD of a
+		transfer) that day. See: `Data Dictionary`_.
 
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "TxTfrValMeanUSD", start, end)
 
+	#: An alias for :py:func:`get_txtfr_val_mean_usd`
+	get_txtfrvalmeanusd, txtfr_val_mean_usd, TxTfrValMeanUSD = [get_txtfr_val_mean_usd] * 3
 
+	def get_txtfr_val_med(self, assets, start, end):
+		"""
+		The median count of native units transferred per transfer
+		(i.e., the median "size" of a transfer) that day.
+		See: `Data Dictionary`_.
 
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "TxTfrValMedNtv", start, end)
 
+	#: An alias for :py:func:`get_txtfr_val_med`
+	get_txtfrvalmed, txtfr_val_med, TxTfrValMedNtv = [get_txtfr_val_med] * 3
 
+	def get_txtfr_val_med_usd(self, assets, start, end):
+		"""
+		The median USD value transferred per transfer (i.e., the
+		median "size" in USD of a transfer) that day.
+		See: `Data Dictionary`_.
 
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "TxTfrValMedUSD", start, end)
 
+	#: An alias for :py:func:`get_txtfr_val_med_usd`
+	get_txtfrvalmedusd, txtfr_val_med_usd, TxTfrValMedUSD = [get_txtfr_val_med_usd] * 3
 
+	def get_txtfr_val(self, assets, start, end):
+		"""
+		The sum of native units transferred (i.e., the aggregate
+		"size" of all transfers) that day. See: `Data Dictionary`_.
+
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
+
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "TxTfrValNtv", start, end)
+
+	#: An alias for :py:func:`get_txtfr_val`
+	get_txtfrval, txtfr_val, TxTfrValNtv = [get_txtfr_val] * 3
+
+	def get_txtfr_val_usd(self, assets, start, end):
+		"""
+		The sum USD value of all native units transferred
+		(i.e., the aggregate size in USD of all transfers)
+		that day. See: `Data Dictionary`_.
+
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
+
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "TxTfrValUSD", start, end)
+
+	#: An alias for :py:func:`get_txtfr_val_usd`
+	get_txtfrvalusd, txtfr_val_usd, TxTfrValUSD = [get_txtfr_val_usd] * 3
+
+	def get_vty_ret_180d(self, assets, start, end):
+		"""
+		The 180D volatility, measured as the deviation of
+		log returns See: `Data Dictionary`_.
+
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
+
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "VtyDayRet180d", start, end)
+
+	#: An alias for :py:func:`get_vty_ret_180d`
+	get_vtyret180d, vty_ret_180d, VtyDayRet180d = [get_vty_ret_180d] * 3
+
+	def get_vty_ret_30d(self, assets, start, end):
+		"""
+		The 30D volatility, measured as the deviation of log returns See: `Data Dictionary`_.
+
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
+
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "VtyDayRet30d", start, end)
+
+	#: An alias for :py:func:`get_vty_ret_30d`
+	get_vtyret30d, vty_ret_30d, VtyDayRet30d = [get_vty_ret_30d] * 3
+
+	def get_vty_ret_60d(self, assets, start, end):
+		"""
+		The 60D volatility, measured as the deviation of log returns.
+		See: `Data Dictionary`_.
+
+		.. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
+
+		:Parameters: See see :py:func:`get_metric_data` for parameter and return details.
+		"""
+		return self.get_metric_data(assets, "VtyDayRet60d", start, end)
+
+	#: An alias for :py:func:`get_vty_ret_60d`
+	get_vtyret60d, vty_ret_60d, VtyDayRet60d = [get_vty_ret_60d] * 3
 
