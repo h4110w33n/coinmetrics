@@ -7,7 +7,7 @@ BUILDDIR      = build
 TESTSCRIPT    ?= test.py
 LEGTESTSCRIPT ?= test-legacy.py
 
-.PHONY: test test-legacy Makefile docs-clean docs prep help clean-pyc clean-build
+.PHONY: test test-legacy Makefile docs-clean docs prep help
 
 help:
 	@echo "Available Options:"
@@ -38,15 +38,3 @@ test-legacy: Makefile
 
 release:
 	python setup.py sdist bdist_wheel
-
-clean-pyc:
-	find . -name '*.pyc' -exec rm -rf {} \;
-	find . -name '*.pyo' -exec rm -rf {} \;
-
-clean-build:
-	rm --force --recursive build/
-	rm --force --recursive dist/
-	rm --force --recursive *.egg-info
-
-clean: clean-pyc clean-build docs-clean
-	@echo All Clean
