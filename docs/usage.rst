@@ -3,6 +3,9 @@
 Usage
 =====
 
+Modern Community API
+""""""""""""""""""""
+
 .. code-block:: python
   
   # API Setup #################################################################
@@ -12,6 +15,30 @@ Usage
 
   # Initialize a reference object, in this case `cm` for the Community API
   cm = coinmetrics.Community()
+
+  # Usage Examples ############################################################  
+
+  # List the assets Coin Metrics has data for.
+  print(cm.get_assets())
+
+  # List all available metrics for BTC.
+  print(cm.get_asset_metrics("btc"))
+
+  # Fetch the `medianfee` data for BTC from timestamp 2019-01-01 to 2019-02-01.
+  print(CM.get_asset_metric_data("btc","FeeMedNtv" , "2019-01-01", "2019-02-01"))
+
+Legacy Community API
+""""""""""""""""""""
+
+.. code-block:: python
+  
+  # API Setup #################################################################
+
+  # Import the API
+  import coinmetrics
+
+  # Initialize a reference object, in this case `cm` for the Legacy Community API
+  cm = coinmetrics.Legacy()
 
   # Usage Examples ############################################################
 

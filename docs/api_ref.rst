@@ -23,5 +23,4 @@ The :ref:`base` and :ref:`community` APIs are available to all users without an 
    community
    pro
    utils
-   data_object
 
