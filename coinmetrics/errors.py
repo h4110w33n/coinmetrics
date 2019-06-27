@@ -1,3 +1,10 @@
+"""
+Coin Metrics API Error Module Definitions
+"""
+
+# We do not call these errors from this file, so we should ignore the lint error for it here.
+# pylint: disable=W0611
+
 class Error(Exception):
 	"""
 	Base class for other exceptions.

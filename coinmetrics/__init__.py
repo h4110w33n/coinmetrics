@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 Coin Metrics API Module Includes
 """

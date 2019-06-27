@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 Coin Metrics API Base Module Definitions
 """
@@ -7,20 +5,15 @@ Coin Metrics API Base Module Definitions
 from decimal import Decimal
 import json
 import logging
-import requests
 import urllib.parse
+import requests
 from dateutil import parser
-from .errors import (
-	Error,
-	InvalidAssetError,
-	InvalidTimeRangeError,
-	InvalidMetricError,
-	InvalidExchangeError,
-	InvalidMarketError,
-)
+from .errors import InvalidAssetError, InvalidTimeRangeError, InvalidMetricError, InvalidExchangeError, InvalidMarketError
 
 class Base:
-	
+	"""
+	Coin Metrics API Base Object
+	"""
 	def __init__(self, api_key=""):
 		"""
 		Initialize API to use the Community API endpoints by default.
@@ -33,7 +26,7 @@ class Base:
 		self.host_url = 'https://community-api.coinmetrics.io/v2/'
 		self.headers = {"api_key": api_key} if api_key != '' else {}
 
-	def _api_query(self, endpoint, options={}):
+	def _api_query(self, endpoint, options=None):
 		"""
 		Execute the raw API query and return the raw JSON output.
 
@@ -52,7 +45,7 @@ class Base:
 		self.logger.debug("Endpoint: '%s'", endpoint)
 		self.logger.debug("Options: '%s'", str(options))
 		self.logger.debug("Headers: '%s'", str(self.headers))
-		encoded_options = urllib.parse.urlencode(options)
+		encoded_options = urllib.parse.urlencode(options if options is not None else {})
 		request_url = self.host_url + endpoint + '?' + encoded_options
 		self.logger.debug("Request URL: '%s'", str(request_url))
 		response = requests.get(request_url, headers=self.headers).content.decode('utf-8')
@@ -70,7 +63,7 @@ class Base:
 	#: An alias for :py:func:`get_assets`
 	get_supported_assets, assets = [get_assets] * 2
 
-	def asset_checker(self, asset):
+	def asset_checker(self, assets):
 		"""
 		Helper function to determine if the requested asset(s) is(are) valid.
 
@@ -79,13 +72,13 @@ class Base:
 		
 		:raises: InvalidAssetError
 		"""
-		asset = asset.split(",")
+		assets = assets.split(",")
 		reference = self.get_assets()
-		for a in asset:
-			if a in reference:
+		for asset in assets:
+			if asset in reference:
 				pass
 			else:
-				raise InvalidAssetError("Invalid asset: '{}'".format(a))
+				raise InvalidAssetError("Invalid asset: '{}'".format(asset))
 
 	def get_metrics(self):
 		"""
@@ -99,22 +92,22 @@ class Base:
 	#: An alias for :py:func:`get_metrics`
 	getmetrics, metrics = [get_metrics] * 2
 
-	def metric_checker(self, metric):
+	def metric_checker(self, metrics):
 		"""
 		Helper function to determine if the requested metric(s) is(are) valid.
 
-		:param metric: Unique ID corresponding to metric.
-		:type metric: str
+		:param metrics: Unique ID corresponding to metric.
+		:type metrics: str
 
 		:raises: InvalidMetricError
 		"""
-		metric = metric.split(",")
+		metrics = metrics.split(",")
 		reference = self.get_metrics()
-		for m in metric:
-			if m in reference:
+		for metric in metrics:
+			if metric in reference:
 				pass
 			else:
-				raise InvalidMetricError("Invalid metrics: '{}'".format(m))
+				raise InvalidMetricError("Invalid metrics: '{}'".format(metric))
 
 	def get_exchanges(self):
 		"""
@@ -128,22 +121,22 @@ class Base:
 	#: An alias for :py:func:`get_exchanges`
 	getexchanges, exchange = [get_exchanges] * 2
 
-	def exchange_checker(self, exchange):
+	def exchange_checker(self, exchanges):
 		"""
 		Helper function to determine if the requested exchange(s) is(are) valid.
 
-		:param exchange: Unique ID corresponding to the exchange.
-		:type exchange: str
+		:param exchanges: Unique ID corresponding to the exchange.
+		:type exchanges: str
 
 		:raises: InvalidExchangeError
 		"""
-		exchange = exchange.split(",")
+		exchanges = exchanges.split(",")
 		reference = self.get_exchanges()
-		for e in exchange:
-			if e in reference:
+		for exchange in exchanges:
+			if exchange in reference:
 				pass
 			else:
-				raise InvalidExchangeError("Invalid exchange: '{}'".format(e))
+				raise InvalidExchangeError("Invalid exchange: '{}'".format(exchange))
 
 	def get_markets(self):
 		"""
@@ -157,7 +150,7 @@ class Base:
 	#: An alias for :py:func:`get_markets`
 	getmarkets, markets = [get_markets] * 2
 
-	def market_checker(self, market):
+	def market_checker(self, markets):
 		"""
 		Helper function to determine if the requested market(s) is(are) valid.
 
@@ -166,13 +159,13 @@ class Base:
 
 		:raises: InvalidMarketError
 		"""
-		market = market.split(",")
+		markets = markets.split(",")
 		reference = self.get_markets()
-		for m in market:
-			if m in reference:
+		for market in markets:
+			if market in reference:
 				pass
 			else:
-				raise InvalidMarketError("Invalid market: '{}'".format(m))
+				raise InvalidMarketError("Invalid market: '{}'".format(market))
 
 	def timestamp_checker(self, begin_timestamp, end_timestamp):
 		"""
@@ -186,7 +179,6 @@ class Base:
 
 		:raises: InvalidTimeRangeError
 		"""
-		# TODO: There is a beginning and end time in one of the info functions.
 		self.logger.debug("Begin Timestamp: '%s'", begin_timestamp)
 		self.logger.debug("End Timestamp: '%s'", end_timestamp)
 		begin_timestamp = parser.parse(str(begin_timestamp))

@@ -1,14 +1,15 @@
-# -*- coding: utf-8 -*-
-
 """
 Coin Metrics API Pro Module Definitions
 """
 
 import logging
-from .base import Base
 from .community import Community
+from .errors import InvalidMetricError
 
 class Pro(Community):
+	"""
+	Coin Metrics API Pro Object
+	"""
 
 	# Due to the conveniance methods, we trigger R0904: too-many-public-methods even though this is desired.
 	# pylint: disable=R0904
@@ -47,13 +48,13 @@ class Pro(Community):
 
 		:raises: InvalidMetricError
 		"""
-		index = index.split(",")
+		indexes = indexes.split(",")
 		reference = self.get_indexes()
-		for i in index:
-			if i in reference:
+		for index in indexes:
+			if index in reference:
 				pass
 			else:
-				raise InvalidMetricError("Invalid metrics: '{}'".format(i))
+				raise InvalidMetricError("Invalid metrics: '{}'".format(index))
 
 	def get_index_info(self, indexes):
 		"""

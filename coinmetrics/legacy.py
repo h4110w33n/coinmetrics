@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 Coin Metrics Legacy Community API Module Definitions
 """
@@ -8,17 +6,11 @@ from decimal import Decimal
 import json
 import logging
 import requests
-from .errors import (
-	Error,
-	InvalidAssetError,
-	InvalidTimeRangeError,
-	InvalidDataTypeError,
-)
-
+from .errors import InvalidAssetError, InvalidTimeRangeError, InvalidDataTypeError
 
 class CommunityLegacy():
 	"""
-	Community APIv1 object
+	Community APIv1 Object
 	"""
 
 	# Due to the conveniance methods, we trigger R0904: too-many-public-methods even though this is desired.
@@ -472,8 +464,3 @@ class CommunityLegacy():
 			self.logger.debug("Begin Timestamp: '%s'", begin_timestamp)
 			self.logger.debug("End Timestamp: '%s'", end_timestamp)
 			raise InvalidTimeRangeError
-
-
-
-
-
