@@ -2,6 +2,9 @@
 
 Pro
 ---
+
+.. note:: Currently, these methods and untested.
+
 The :samp:`Pro` class is an extensions of the :ref:`community` class, which also means it inherits all methods prevously defined in :ref:`community` and :ref:`base`.
 
 Primary Methods

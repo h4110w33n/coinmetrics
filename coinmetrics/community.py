@@ -119,6 +119,9 @@ class Community(Base):
                                        a single asset at a time.""")
         return self.get_asset_info(asset)[0]['metrics']
 
+    #: An alias for :py:func:`get_asset_metrics` (backwards compatibility)
+    get_available_data_types_for_asset = get_asset_metrics
+
     def asset_metric_checker(self, asset, metrics):
         """
         Helper function to determine if the requested metric(s) is(are) valid
@@ -165,7 +168,7 @@ class Community(Base):
         :return: Coin Metrics API data object. See the `API reference`_ for details
         :rtype: dict
 
-        -- _`API reference`: https://docs.coinmetrics.io/api/v2/#operation/getAssetMetricsData
+        .. _`API reference`: https://docs.coinmetrics.io/api/v2/#operation/getAssetMetricsData
         """
         #pylint: disable=R0913
         self.logger.debug("Assets: '%s'", assets)
@@ -178,6 +181,9 @@ class Community(Base):
         endpoint = "assets/%s/metricdata" % assets
         options = {"metrics": metrics, "start": start, "end": end, "time_agg": time_agg}
         return self._api_query(endpoint, options)['metricData']
+
+    #: An alias for :py:func:`get_asset_metric_data` (backwards compatibility)
+    get_asset_data_for_time_range = get_asset_metric_data
 
     def get_active_addresses(self, assets, start, end):
         """
