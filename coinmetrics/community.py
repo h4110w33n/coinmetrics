@@ -2,7 +2,7 @@
 Coin Metrics API Community Module Definitions
 """
 
-# import logging
+import logging
 from .base import Base
 from .errors import InvalidAssetError, InvalidMetricError
 
@@ -24,6 +24,7 @@ class Community(Base):
         :type api_key: str, optional
         """
         super().__init__()
+        self.logger = logging.getLogger(__name__)
 
     def get_asset_info(self, assets=""):
         """
@@ -114,6 +115,7 @@ class Community(Base):
         :return: List of supported metrics for the asset.
         :rtype: list
         """
+        self.logger.debug("Assets: '%s'", assets)
         if "," in asset:
             raise InvalidAssetError("""Can only fetch compatible metrics from
                                        a single asset at a time.""")
@@ -134,6 +136,8 @@ class Community(Base):
         :param metric: Unique ID corresponding to metric.
         :type metric: str
         """
+        self.logger.debug("Assets: '%s'", assets)
+        self.logger.debug("Metrics: '%s'", metrics)
         metrics = metrics.split(",")
         reference = self.get_asset_metrics(asset)
         for metric in metrics:

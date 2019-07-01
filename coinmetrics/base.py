@@ -17,7 +17,7 @@ class Base:
     """
     def __init__(self, api_key=""):
         """
-        Initialize API to use the Community API endpoints by default.
+        Initialize API to use the Base API endpoints by default.
         An optional :samp:`api_key` can be supplied.
 
         :param api_key: API key to be used for the Pro API.
@@ -50,6 +50,7 @@ class Base:
         request_url = self.host_url + endpoint + '?' + encoded_options
         self.logger.debug("Request URL: '%s'", str(request_url))
         response = requests.get(request_url, headers=self.headers).content.decode('utf-8')
+        self.logger.debug("API query sent.")
         return json.loads(response, parse_float=Decimal, parse_int=Decimal)
 
     def get_assets(self):
@@ -59,6 +60,7 @@ class Base:
         :return: List of supported assets.
         :rtype: list
         """
+        self.logger.debug("Fetching assets.")
         return self._api_query("assets")["assets"]
 
     #: An alias for :py:func:`get_assets`
@@ -73,6 +75,7 @@ class Base:
 
         :raises: InvalidAssetError
         """
+        self.logger.debug("Checking assets: '%s'", assets)
         assets = assets.split(",")
         reference = self.get_assets()
         for asset in assets:
@@ -88,6 +91,7 @@ class Base:
         :return: List of supported metrics.
         :rtype: list
         """
+        self.logger.debug("Fetching metrics.")
         return self._api_query("metrics")['metrics']
 
     #: An alias for :py:func:`get_metrics`
@@ -102,6 +106,7 @@ class Base:
 
         :raises: InvalidMetricError
         """
+        self.logger.debug("Checking metrics: '%s'", metrics)
         metrics = metrics.split(",")
         reference = self.get_metrics()
         for metric in metrics:
@@ -117,6 +122,7 @@ class Base:
         :return: List of supported exchanges.
         :rtype: list
         """
+        self.logger.debug("Fetching exchanges.")
         return self._api_query("exchanges")['exchanges']
 
     #: An alias for :py:func:`get_exchanges`
@@ -131,6 +137,7 @@ class Base:
 
         :raises: InvalidExchangeError
         """
+        self.logger.debug("Checking exchanges: '%s'", exchanges)
         exchanges = exchanges.split(",")
         reference = self.get_exchanges()
         for exchange in exchanges:
@@ -146,6 +153,7 @@ class Base:
         :return: List of supported markets.
         :rtype: list
         """
+        self.logger.debug("Fetching markets.")
         return self._api_query("markets")['markets']
 
     #: An alias for :py:func:`get_markets`
@@ -160,6 +168,7 @@ class Base:
 
         :raises: InvalidMarketError
         """
+        self.logger.debug("Checking markets: '%s'", markets)
         markets = markets.split(",")
         reference = self.get_markets()
         for market in markets:
@@ -180,6 +189,7 @@ class Base:
 
         :raises: InvalidTimeRangeError
         """
+        self.logger.debug("Checking timestamps:")
         self.logger.debug("Begin Timestamp: '%s'", begin_timestamp)
         self.logger.debug("End Timestamp: '%s'", end_timestamp)
         begin_timestamp = parser.parse(str(begin_timestamp))
