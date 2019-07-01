@@ -147,15 +147,15 @@ class Community(Base):
                 raise InvalidMetricError("""Invalid metric '{}' for the given
                                             asset '{}'.""".format(metric, asset))
 
-    def get_asset_metric_data(self, assets, metrics, start, end, time_agg="day"):
+    def get_asset_metric_data(self, asset, metrics, start, end, time_agg="day"):
         """
         Fetch metric(s) data given a specified asset, and timeframe.
         See: `Data Dictionary`_.
 
         .. _`Data Dictionary`: https://coinmetrics.io/community-data-dictionary/
 
-        :param assets: Unique ID corresponding to the asset's ticker.
-        :type assets: str
+        :param asset: Unique ID corresponding to the asset's ticker.
+        :type asset: str
 
         :param metrics: Unique ID corresponding to the metrics.
         :type metrics: str
@@ -175,14 +175,16 @@ class Community(Base):
         .. _`API reference`: https://docs.coinmetrics.io/api/v2/#operation/getAssetMetricsData
         """
         #pylint: disable=R0913
-        self.logger.debug("Assets: '%s'", assets)
+        if metrics == "all" or None:
+            metrics = ','.join(self.get_asset_metrics(asset))
+        self.logger.debug("asset: '%s'", asset)
         self.logger.debug("Metrics: '%s'", metrics)
         self.logger.debug("Start Timestamp: '%s'", start)
         self.logger.debug("End Timestamp: '%s'", end)
-        self.asset_checker(assets)
+        self.asset_checker(asset)
         self.metric_checker(metrics)
         self.timestamp_checker(start, end)
-        endpoint = "assets/%s/metricdata" % assets
+        endpoint = "assets/%s/metricdata" % asset
         options = {"metrics": metrics, "start": start, "end": end, "time_agg": time_agg}
         return self._api_query(endpoint, options)['metricData']
 
