@@ -19,4 +19,4 @@ Manual Install
   cd coinmetrics
   python setup.py install
 
-Now that you have everything installed, you can refer to the _usage page for some code snippets.
+Now that you have everything installed, you can refer to the :ref:`usage` page for some code snippets.

@@ -1,7 +1,7 @@
 Coin Metrics for Python
 =======================
 
-.. note:: This module currently only the Community API.
+.. note:: This module only impliments the Community API (i.e. anything without an API key).
 
 This API for Python 3 provides a convenient interface for developers wanting to use Coin Metrics data. 
 
