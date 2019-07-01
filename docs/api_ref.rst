@@ -1,63 +1,26 @@
 .. _api_ref:
 
-Community API
+API Reference
 =============
-The Coin Metrics API is provided for free and works without an API Key. See: https://coinmetrics.io/community-network-data/
+The Coin Metrics API provides discovery mechanisms, network, exchange, and asset data via a direct JSON REST API. This module acts as a client interface.
 
-The API implimentation has a few major sections:
+The :ref:`base` and :ref:`community` APIs are available to all users without an API key. The :ref:`pro` API does require an API key that is only obtainable though `CM Network Data Pro`_.
 
-1. The API has three official endpoints, which are grouped into the :ref:`core` section below. See: https://coinmetrics.io/api/
-2. The `get_asset_data_for_time_range` endpoint has been extended into a number of more direct conveniance methods in the :ref:`extensions` section.
-3. To accomidate a number of naming/formatting styles, aliases for each of the extended endpoints have been provided in the :ref:`aliases` section.
-4. Basic sanity checkers that are internally used by this module are under the :ref:`helpers` section.
-5. Errors due to invalid or misguided inputs are documented in the :ref:`exceptions` section.
+.. _CM Network Data Pro: https://coinmetrics.io/cm-network-data-pro/
 
-.. _core:
+.. note:: The following arguments can consist of a single element or a comma delimited list within a string. A Python :samp:`list` is not valid at this time.
 
-Core
-""""
+	- Asset: :samp:`btc` or :samp:`btc,ltc,eth`
+	- Metric: :samp:`PriceUSD` or :samp:`NVTAdj,NVTAdj90,PriceUSD`
+	- Exchange: :samp:`coinbase` or :samp:`bitfinex,coinbase,kraken`
+	- Market: :samp:`bitfinex-btc-usd-spot` or  :samp:`bitfinex-btc-usd-spot, bitfinex-eth-usd-spot,kraken-btc-usd-spot`
 
-A direct implimentation of the API provided by Coin Metrics.
+.. toctree::
+   :maxdepth: 2
+   :caption: Class and Method Definitions:
 
-.. autoclass:: coinmetrics.api.Community
-    :members: get_supported_assets,get_available_data_types_for_asset,get_asset_data_for_time_range
+   base
+   community
+   pro
+   utils
 
-.. _extensions:
-
-Extensions
-""""""""""
-
-A number of conveniance functions that extend the :py:func:`get_asset_data_for_time_range` method into more memorable methods for each data type.
-
-.. autoclass:: coinmetrics.api.Community
-	:members: get_active_addresses, get_adjusted_tx_volume, get_average_difficulty, get_block_count, get_block_size, get_exchange_volume, get_fees, get_generated_coins, get_market_cap, get_median_fee, get_median_tx_value, get_payment_count, get_price, get_realized_cap, get_tx_count, get_tx_volume
-
-.. _aliases:
-
-Aliases
-"""""""
-
-All of the variations of the :ref:`extensions` listed above.
-
-.. autoclass:: coinmetrics.api.Community
-    :members: get_marketcap, getmarketcap, market_cap, marketcap, get_medianfee, getmedianfee, median_fee, medianfee, get_mediantxvalue, getmediantxvalue, median_tx_value, mediantxvalue, get_paymentcount, getpaymentcount, payment_count, paymentcount, getprice, price, get_realizedcap, getrealizedcap, realized_cap, realizedcap, get_txcount, gettxcount, tx_count, txcount, get_txvolume, gettxvolume, tx_volume, txcount
-
-.. _helpers:
-
-Helpers
-"""""""
-
-These are internally used functions to validate the arguments provided. The are resource intensive, as in they will fetch any necessary details through more basic functions to determine the validity. With this approach, we avoid sending a potentially large number of failed requests.
-
-.. autoclass:: coinmetrics.api.Community
-	:members: asset_checker, data_type_checker, timestamp_checker
-
-.. _exceptions:
-
-Exceptions
-""""""""""
-
-Not all plans go smoothly. Exceptions are here to handle those. These are raised within the :ref:`helpers` methods only.
-
-.. automodule:: coinmetrics.api
-    :members: Error, InvalidAssetError, InvalidDataTypeError, InvalidTimeRangeError

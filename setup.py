@@ -10,7 +10,7 @@ with open('requirements.txt') as f:
 
 setup(
 	name='coinmetrics',
-	version='0.1.0',
+	version='0.2.0',
 	author="Robert Rice",
 	author_email="h4110w33n@gmail.com",
 	url='https://github.com/h4110w33n/coinmetrics',
@@ -18,7 +18,7 @@ setup(
 	long_description='An unofficial library to standardize queries to the Coin Metrics (coinmetrics.io) API.',
 	keywords=['coinmetrics', 'crypto', 'cryptocurrency', 'rest', 'api'],
 	classifiers=[
-		'Development Status :: 4 - Beta ',
+		'Development Status :: 5 - Production/Stable',
 		'Intended Audience :: Developers',
 		'Intended Audience :: Education',
 		'Intended Audience :: Financial and Insurance Industry',
