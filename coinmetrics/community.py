@@ -115,7 +115,7 @@ class Community(Base):
         :return: List of supported metrics for the asset.
         :rtype: list
         """
-        self.logger.debug("Assets: '%s'", assets)
+        self.logger.debug("Asset: '%s'", asset)
         if "," in asset:
             raise InvalidAssetError("""Can only fetch compatible metrics from
                                        a single asset at a time.""")
@@ -136,7 +136,7 @@ class Community(Base):
         :param metric: Unique ID corresponding to metric.
         :type metric: str
         """
-        self.logger.debug("Assets: '%s'", assets)
+        self.logger.debug("Asset: '%s'", asset)
         self.logger.debug("Metrics: '%s'", metrics)
         metrics = metrics.split(",")
         reference = self.get_asset_metrics(asset)
