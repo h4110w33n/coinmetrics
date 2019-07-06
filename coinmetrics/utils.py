@@ -26,6 +26,7 @@ def cm_to_pandas(data):
         pandas_dataframe = pd.DataFrame(index=raw_index,
                                         data=raw_values,
                                         columns=data['metrics'])
+        pandas_dataframe = pandas_dataframe.astype(float)
         return pandas_dataframe
     return data
 

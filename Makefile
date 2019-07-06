@@ -55,13 +55,15 @@ clean-pyc:
 
 clean: clean-build clean-pyc clean-docs
 
-dist: test docs clean
+dist: test clean
 	python setup.py sdist
 	python setup.py bdist_wheel
 
 release: clean
-	python setup.py sdist upload
-	python setup.py bdist_wheel upload
+	python setup.py sdist
+	python setup.py bdist_wheel
+	pip install twine
+	twine upload dist/*
 
 install: clean
 	python setup.py install
