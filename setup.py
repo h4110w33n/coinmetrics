@@ -10,7 +10,7 @@ with open('requirements.txt') as f:
 
 setup(
 	name='coinmetrics',
-	version='0.2.0',
+	version='0.2.1',
 	author="Robert Rice",
 	author_email="h4110w33n@gmail.com",
 	url='https://github.com/h4110w33n/coinmetrics',
