@@ -43,8 +43,10 @@ class BaseAPITests(unittest.TestCase):
 		"""
 		LOG.debug("\n\tFunction: get_assets()")
 		LOG.debug("\tArgument: None")
-		expected_result = ['ada', 'ae', 'aion', 'ant', 'bat', 'bch', 'bnb', 'bnb_mainnet', 'bsv', 'btc', 'btg', 'btm', 'cvc', 'dai', 'dash', 'dcr', 'dgb', 'doge', 'drgn', 'elf', 'eng', 'eos', 'etc', 'eth', 'ethos', 'fun', 'gas', 'gno', 'gnt', 'grin', 'gusd', 'icx', 'kcs', 'knc', 'loom', 'lrc', 'lsk', 'ltc', 'maid', 'mana', 'mkr', 'nas', 'neo', 'omg', 'pax', 'pay', 'pivx', 'poly', 'powr', 'ppt', 'qash', 'qtum', 'rep', 'snt', 'trx', 'tusd', 'usdc', 'usdt', 'usdt_eth', 'vet', 'vtc', 'waves', 'wtc', 'xem', 'xlm', 'xmr', 'xrp', 'xtz', 'xvg', 'zec', 'zil', 'zrx']
-		self.assertEqual(CM.get_assets(), expected_result)
+		results = CM.get_assets()
+		sample_expected_assets = ['bch', 'bnb', 'btc', 'dash', 'doge', 'eth', 'ltc', 'neo', 'xrp']
+		for asset in sample_expected_assets:
+			self.assertTrue(asset in results)
 
 	def test_get_metrics(self):
 		"""
@@ -52,8 +54,10 @@ class BaseAPITests(unittest.TestCase):
 		"""
 		LOG.debug("\n\tFunction: get_metrics()")
 		LOG.debug("\tArgument: None")
-		expected_result = ['AdrActCnt', 'BlkCnt', 'BlkSizeByte', 'BlkSizeMeanByte', 'CapMVRVCur', 'CapMrktCurUSD', 'CapRealUSD', 'DiffMean', 'FeeMeanNtv', 'FeeMeanUSD', 'FeeMedNtv', 'FeeMedUSD', 'FeeTotNtv', 'FeeTotUSD', 'IssContNtv', 'IssContPctAnn', 'IssContUSD', 'IssTotNtv', 'IssTotUSD', 'NVTAdj', 'NVTAdj90', 'PriceBTC', 'PriceUSD', 'ROI1yr', 'ROI30d', 'SplyCur', 'TxCnt', 'TxTfr', 'TxTfrValAdjNtv', 'TxTfrValAdjUSD', 'TxTfrValMeanNtv', 'TxTfrValMeanUSD', 'TxTfrValMedNtv', 'TxTfrValMedUSD', 'TxTfrValNtv', 'TxTfrValUSD', 'VtyDayRet180d', 'VtyDayRet30d', 'VtyDayRet60d']
-		self.assertEqual(CM.get_metrics(), expected_result)
+		sample_expected_metrics = ['AdrActCnt', 'BlkCnt', 'BlkSizeByte', 'BlkSizeMeanByte', 'CapMVRVCur', 'CapMrktCurUSD', 'CapRealUSD', 'DiffMean', 'FeeMeanNtv', 'FeeMeanUSD', 'FeeMedNtv', 'FeeMedUSD', 'FeeTotNtv', 'FeeTotUSD', 'IssContNtv', 'IssContPctAnn', 'IssContUSD', 'IssTotNtv', 'IssTotUSD', 'NVTAdj', 'NVTAdj90', 'PriceBTC', 'PriceUSD', 'ROI1yr', 'ROI30d', 'SplyCur', 'TxCnt', 'TxTfr', 'TxTfrValAdjNtv', 'TxTfrValAdjUSD', 'TxTfrValMeanNtv', 'TxTfrValMeanUSD', 'TxTfrValMedNtv', 'TxTfrValMedUSD', 'TxTfrValNtv', 'TxTfrValUSD', 'VtyDayRet180d', 'VtyDayRet30d', 'VtyDayRet60d']
+		results = CM.get_metrics()
+		for metric in sample_expected_metrics:
+			self.assertTrue(metric in results)
 
 	def test_get_exchanges(self):
 		"""
@@ -61,8 +65,10 @@ class BaseAPITests(unittest.TestCase):
 		"""
 		LOG.debug("\n\tFunction: get_exchanges()")
 		LOG.debug("\tArgument: None")
-		expected_result = ['bitfinex', 'bitstamp', 'bittrex', 'coinbase', 'gemini', 'itbit', 'kraken', 'liquid']
-		self.assertEqual(CM.get_exchanges(), expected_result)
+		sample_expected_exchanges = ['bitfinex', 'bitstamp', 'bittrex', 'coinbase', 'gemini', 'itbit', 'kraken', 'liquid']
+		results = CM.get_exchanges()		
+		for exchange in sample_expected_exchanges:
+			self.assertTrue(exchange in results)		
 
 	def test_get_markets(self):
 		"""
@@ -70,8 +76,10 @@ class BaseAPITests(unittest.TestCase):
 		"""
 		LOG.debug("\n\tFunction: get_markets()")
 		LOG.debug("\tArgument: None")
-		expected_result = ['bitfinex-btc-usd-spot', 'bitfinex-eth-usd-spot', 'bitstamp-btc-usd-spot', 'bitstamp-eth-usd-spot', 'bittrex-btc-usd-spot', 'bittrex-eth-usd-spot', 'coinbase-btc-usd-spot', 'coinbase-eth-usd-spot', 'gemini-btc-usd-spot', 'gemini-eth-usd-spot', 'itbit-btc-usd-spot', 'itbit-eth-usd-spot', 'kraken-btc-usd-spot', 'kraken-eth-usd-spot', 'liquid-btc-usd-spot', 'liquid-eth-usd-spot']
-		self.assertEqual(CM.get_markets(), expected_result)
+		sample_expected_markets = ['bitfinex-btc-usd-spot', 'bitfinex-eth-usd-spot', 'bitstamp-btc-usd-spot', 'bitstamp-eth-usd-spot', 'bittrex-btc-usd-spot', 'bittrex-eth-usd-spot', 'coinbase-btc-usd-spot', 'coinbase-eth-usd-spot', 'gemini-btc-usd-spot', 'gemini-eth-usd-spot', 'itbit-btc-usd-spot', 'itbit-eth-usd-spot', 'kraken-btc-usd-spot', 'kraken-eth-usd-spot', 'liquid-btc-usd-spot', 'liquid-eth-usd-spot']
+		results = CM.get_markets()
+		for market in sample_expected_markets:
+			self.assertTrue(market in results)
 
 	def test_asset_checker(self):
 		"""
@@ -134,12 +142,18 @@ class CommunityAPITests(unittest.TestCase):
 		LOG.debug("\n\tFunction: get_asset_info()")
 		LOG.debug("\tArgument: asset = '%s'", ASSET)
 		results = CM.get_asset_info(ASSET)
-		expected_exchanges = ['bitfinex', 'bitstamp', 'bittrex', 'coinbase', 'gemini', 'itbit', 'kraken', 'liquid']
-		expected_markets = ['bitfinex-btc-usd-spot', 'bitstamp-btc-usd-spot', 'bittrex-btc-usd-spot', 'coinbase-btc-usd-spot', 'gemini-btc-usd-spot', 'itbit-btc-usd-spot', 'kraken-btc-usd-spot', 'liquid-btc-usd-spot']
-		expected_metrics = ['AdrActCnt', 'BlkCnt', 'BlkSizeByte', 'BlkSizeMeanByte', 'CapMVRVCur', 'CapMrktCurUSD', 'CapRealUSD', 'DiffMean', 'FeeMeanNtv', 'FeeMeanUSD', 'FeeMedNtv', 'FeeMedUSD', 'FeeTotNtv', 'FeeTotUSD', 'IssContNtv', 'IssContPctAnn', 'IssContUSD', 'IssTotNtv', 'IssTotUSD', 'NVTAdj', 'NVTAdj90', 'PriceBTC', 'PriceUSD', 'ROI1yr', 'ROI30d', 'SplyCur', 'TxCnt', 'TxTfr', 'TxTfrValAdjNtv', 'TxTfrValAdjUSD', 'TxTfrValMeanNtv', 'TxTfrValMeanUSD', 'TxTfrValMedNtv', 'TxTfrValMedUSD', 'TxTfrValNtv', 'TxTfrValUSD', 'VtyDayRet180d', 'VtyDayRet30d', 'VtyDayRet60d']
-		self.assertEqual(results[0]['exchanges'], expected_exchanges)
-		self.assertEqual(results[0]['markets'], expected_markets)
-		self.assertEqual(results[0]['metrics'], expected_metrics)
+		self.assertTrue('exchanges' in results[0])
+		self.assertTrue('markets' in results[0])
+		self.assertTrue('metrics' in results[0])
+		sample_expected_exchanges = ['bitfinex', 'coinbase', 'bittrex']
+		for exchange in sample_expected_exchanges:
+			self.assertTrue(exchange in results[0]['exchanges'])
+		sample_expected_markets = ['binance-eth-btc-spot', 'bittrex-ltc-btc-spot', 'poloniex-xrp-btc-spot']
+		for market in sample_expected_markets:
+			self.assertTrue(market in results[0]['markets'])
+		sample_expected_metrics = ['BlkCnt', 'NVTAdj', 'PriceUSD']
+		for metric in sample_expected_metrics:
+			self.assertTrue(metric in results[0]['metrics'])
 
 	def test_get_exchange_info(self):
 		"""
@@ -147,8 +161,10 @@ class CommunityAPITests(unittest.TestCase):
 		"""
 		LOG.debug("\n\tFunction: get_exchange_info()")
 		LOG.debug("\tArgument: exchange = '%s'", EXCHANGE)
-		expected_result = [{'id': 'coinbase', 'marketsInfo': [{'id': 'coinbase-btc-usd-spot', 'assetIdBase': 'btc', 'assetIdQuote': 'usd', 'minTime': None, 'maxTime': None}, {'id': 'coinbase-eth-usd-spot', 'assetIdBase': 'eth', 'assetIdQuote': 'usd', 'minTime': None, 'maxTime': None}]}]
-		self.assertEqual(CM.get_exchange_info(EXCHANGE), expected_result)
+		results = CM.get_exchange_info(EXCHANGE)
+		self.assertTrue('marketsInfo' in results[0])
+		sample_expected_metric_info = {'assetIdBase': 'btc', 'assetIdQuote': 'usd', 'id': 'coinbase-btc-usd-spot', 'maxTime': None, 'minTime': None}
+		self.assertTrue(sample_expected_metric_info in results[0]['marketsInfo'])
 
 	def test_get_metric_info(self):
 		"""
@@ -156,8 +172,13 @@ class CommunityAPITests(unittest.TestCase):
 		"""
 		LOG.debug("\n\tFunction: get_metric_info()")
 		LOG.debug("\tArgument: metric = '%s'", METRIC)
-		expected_result = [{'id': 'PriceUSD', 'name': 'Price, USD', 'description': "The fixed closing price of the asset as of 00:00 UTC the following day (i.e., midnight UTC of the current day) denominated in USD. This price is generated by Coin Metrics' fixing/reference rate service. ", 'category': 'Market', 'subcategory': 'Price'}]
-		self.assertEqual(CM.get_metric_info(METRIC), expected_result)
+		results = CM.get_metric_info(METRIC)
+		self.assertTrue('id' in results[0])
+		self.assertTrue('category' in results[0])
+		self.assertTrue('subcategory' in results[0])
+		self.assertTrue('PriceUSD' in results[0]['id'])
+		self.assertTrue('Market' in results[0]['category'])
+		self.assertTrue('Price' in results[0]['subcategory'])
 
 	def test_get_market_info(self):
 		"""
@@ -165,8 +186,13 @@ class CommunityAPITests(unittest.TestCase):
 		"""
 		LOG.debug("\n\tFunction: get_market_info()")
 		LOG.debug("\tArgument: market = '%s'", MARKET)
-		expected_result = [{'id': 'kraken-eth-usd-spot', 'assetIdBase': 'eth', 'assetIdQuote': 'usd', 'minTime': None, 'maxTime': None}]
-		self.assertEqual(CM.get_market_info(MARKET), expected_result)
+		results = CM.get_market_info(MARKET)
+		self.assertTrue('assetIdBase' in results[0])
+		self.assertTrue('assetIdQuote' in results[0])
+		self.assertTrue('id' in results[0])
+		self.assertTrue('eth' in results[0]['assetIdBase'])
+		self.assertTrue('usd' in results[0]['assetIdQuote'])
+		self.assertTrue('kraken-eth-usd-spot' in results[0]['id'])
 
 	def test_get_asset_metrics(self):
 		"""
@@ -197,8 +223,12 @@ class CommunityAPITests(unittest.TestCase):
 		LOG.debug("\tArgument: metric = '%s'", METRIC)
 		LOG.debug("\tArgument: start = '%s'", BEGIN_TIMESTAMP)
 		LOG.debug("\tArgument: end = '%s'", END_TIMESTAMP)
-		expected_result = {'metrics': ['PriceUSD'], 'series': [{'time': '2019-01-01T00:00:00.000Z', 'values': ['3808.11783167738']}, {'time': '2019-01-02T00:00:00.000Z', 'values': ['3898.1974880187']}, {'time': '2019-01-03T00:00:00.000Z', 'values': ['3784.38863471654']}, {'time': '2019-01-04T00:00:00.000Z', 'values': ['3827.52459438925']}, {'time': '2019-01-05T00:00:00.000Z', 'values': ['3798.61395499708']}, {'time': '2019-01-06T00:00:00.000Z', 'values': ['4045.99377498539']}, {'time': '2019-01-07T00:00:00.000Z', 'values': ['4001.01827819988']}, {'time': '2019-01-08T00:00:00.000Z', 'values': ['3992.6227893045']}]}
-		self.assertEqual(CM.get_asset_metric_data(ASSET, METRIC, BEGIN_TIMESTAMP, END_TIMESTAMP), expected_result)
+		results = CM.get_asset_metric_data(ASSET, METRIC, BEGIN_TIMESTAMP, END_TIMESTAMP)
+		self.assertTrue('metrics' in results)
+		self.assertTrue('series' in results)
+		self.assertTrue('PriceUSD' in results['metrics'])
+		sample_expected_series = {'time': '2019-01-01T00:00:00.000Z', 'values': ['3873.6838767067']}
+		self.assertTrue(sample_expected_series in results['series'])
 
 if __name__ == '__main__':
 	unittest.main(verbosity=2)
