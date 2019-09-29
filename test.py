@@ -54,7 +54,7 @@ class BaseAPITests(unittest.TestCase):
 		"""
 		LOG.debug("\n\tFunction: get_metrics()")
 		LOG.debug("\tArgument: None")
-		sample_expected_metrics = ['AdrActCnt', 'BlkCnt', 'BlkSizeByte', 'BlkSizeMeanByte', 'CapMVRVCur', 'CapMrktCurUSD', 'CapRealUSD', 'DiffMean', 'FeeMeanNtv', 'FeeMeanUSD', 'FeeMedNtv', 'FeeMedUSD', 'FeeTotNtv', 'FeeTotUSD', 'IssContNtv', 'IssContPctAnn', 'IssContUSD', 'IssTotNtv', 'IssTotUSD', 'NVTAdj', 'NVTAdj90', 'PriceBTC', 'PriceUSD', 'ROI1yr', 'ROI30d', 'SplyCur', 'TxCnt', 'TxTfr', 'TxTfrValAdjNtv', 'TxTfrValAdjUSD', 'TxTfrValMeanNtv', 'TxTfrValMeanUSD', 'TxTfrValMedNtv', 'TxTfrValMedUSD', 'TxTfrValNtv', 'TxTfrValUSD', 'VtyDayRet180d', 'VtyDayRet30d', 'VtyDayRet60d']
+		sample_expected_metrics = ['AdrActCnt', 'BlkCnt', 'BlkSizeByte', 'BlkSizeMeanByte', 'CapMVRVCur', 'CapMrktCurUSD', 'CapRealUSD', 'DiffMean', 'PriceUSD', 'ROI1yr', 'SplyCur', 'VtyDayRet180d', 'VtyDayRet30d', 'VtyDayRet60d']
 		results = CM.get_metrics()
 		for metric in sample_expected_metrics:
 			self.assertTrue(metric in results)
@@ -200,7 +200,7 @@ class CommunityAPITests(unittest.TestCase):
 		"""
 		LOG.debug("\n\tFunction: get_asset_metrics()")
 		LOG.debug("\tArgument: asset = '%s'", ASSET)
-		expected_result = ['AdrActCnt', 'BlkCnt', 'BlkSizeByte', 'BlkSizeMeanByte', 'CapMVRVCur', 'CapMrktCurUSD', 'CapRealUSD', 'DiffMean', 'FeeMeanNtv', 'FeeMeanUSD', 'FeeMedNtv', 'FeeMedUSD', 'FeeTotNtv', 'FeeTotUSD', 'IssContNtv', 'IssContPctAnn', 'IssContUSD', 'IssTotNtv', 'IssTotUSD', 'NVTAdj', 'NVTAdj90', 'PriceBTC', 'PriceUSD', 'ROI1yr', 'ROI30d', 'SplyCur', 'TxCnt', 'TxTfr', 'TxTfrValAdjNtv', 'TxTfrValAdjUSD', 'TxTfrValMeanNtv', 'TxTfrValMeanUSD', 'TxTfrValMedNtv', 'TxTfrValMedUSD', 'TxTfrValNtv', 'TxTfrValUSD', 'VtyDayRet180d', 'VtyDayRet30d', 'VtyDayRet60d']
+		expected_result = ['AdrActCnt', 'BlkCnt', 'BlkSizeByte', 'BlkSizeMeanByte', 'CapMVRVCur', 'CapMrktCurUSD', 'CapRealUSD', 'DiffMean', 'FeeMeanNtv', 'FeeMeanUSD', 'FeeMedNtv', 'FeeMedUSD', 'FeeTotNtv', 'FeeTotUSD', 'IssContNtv', 'IssContPctAnn', 'IssContUSD', 'IssTotNtv', 'IssTotUSD', 'NVTAdj', 'NVTAdj90', 'PriceBTC', 'PriceUSD', 'ROI1yr', 'ROI30d', 'SplyCur', 'TxCnt', 'TxTfrCnt', 'TxTfrValAdjNtv', 'TxTfrValAdjUSD', 'TxTfrValMeanNtv', 'TxTfrValMeanUSD', 'TxTfrValMedNtv', 'TxTfrValMedUSD', 'TxTfrValNtv', 'TxTfrValUSD', 'VtyDayRet180d', 'VtyDayRet30d', 'VtyDayRet60d']
 		self.assertEqual(CM.get_asset_metrics(ASSET), expected_result)
 
 	def test_asset_metric_checker(self):
@@ -227,7 +227,7 @@ class CommunityAPITests(unittest.TestCase):
 		self.assertTrue('metrics' in results)
 		self.assertTrue('series' in results)
 		self.assertTrue('PriceUSD' in results['metrics'])
-		sample_expected_series = {'time': '2019-01-01T00:00:00.000Z', 'values': ['3873.6838767067']}
+		sample_expected_series = {'time': '2019-01-01T00:00:00.000Z', 'values': ['3687.19994009351']}
 		self.assertTrue(sample_expected_series in results['series'])
 
 if __name__ == '__main__':
