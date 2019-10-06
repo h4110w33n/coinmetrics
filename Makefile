@@ -22,6 +22,7 @@ help:
 	@echo "    clean-build: remove all build artifacts/eggs."
 	@echo "    clean-pyc: remove all caches/pyc's"
 	@echo "    clean: execute all clean actions: clean-build, clean-pyc and clean-docs."
+	@echo "    coverage: generate a report of functions exercised by test.py"
 
 lint:
 	pylint coinmetrics/*.py
@@ -52,6 +53,10 @@ clean-pyc:
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
+
+coverage:
+	coverage run $(TESTSCRIPT)
+	coverage report --include="coinmetrics/*" -m
 
 clean: clean-build clean-pyc clean-docs
 
