@@ -20,6 +20,8 @@ The methods are designed to provide a simple way to get a single metric, and ess
 .. autoclass:: coinmetrics.community.Community
     :members: get_active_addresses, get_block_count, get_mean_block_size, get_mvrv_cur, get_real_cap, get_diff_mean, get_fee_mean, get_median_fee, get_fee_total, get_units_issued, get_units_issued_ann_pct, get_units_issued_usd, get_nvt_adj, get_nvt_adj_90, get_price_btc, get_price_usd, get_cur_sply, get_tx_count, get_txtfr_count, get_txtfr_val_adj, get_txtfr_val_adj_usd, get_txtfr_val_mean, get_txtfr_val_mean_usd, get_txtfr_val_med, get_txtfr_val_med_usd, get_txtfr_val, get_txtfr_val_usd, get_vty_ret_180d, get_vty_ret_30d, get_vty_ret_60d, get_available_data_types_for_asset, get_asset_data_for_time_range
 
+.. note:: The conveniance methods are not explicitly included in the coverage testing at this time.
+
 Alias Methods
 """""""""""""
 

@@ -6,12 +6,14 @@ BUILDDIR      = build
 # Test options
 TESTSCRIPT    ?= test.py
 LEGTESTSCRIPT ?= test-legacy.py
+TESTCSV		  ?= test.csv
 
 .PHONY: help lint docs clean-docs test test-legacy clean-build clean-pyc clean dist release install
 
 help:
 	@echo "Available Options:"
 	@echo "    lint: lint evertyhing in the coinmetrics directory."
+	@echo "    lint-extras: lint all the other Python files in this repo."
 	@echo "    docs: build the RST documentation for RTD."
 	@echo "    clean-docs: wipe docs clean."
 	@echo "    test: execute unit test in \`$(TESTSCRIPT)\`."
@@ -27,6 +29,9 @@ help:
 lint:
 	pylint coinmetrics/*.py
 
+lint-extras:
+	pylint test.py
+
 docs:
 	@mkdir -p "$(BUILDDIR)"
 	@mkdir -p {"$(BUILDDIR)/doctrees","$(BUILDDIR)/html"}
@@ -40,6 +45,9 @@ test:
 
 test-legacy:
 	python3 $(LEGTESTSCRIPT) || python $(LEGTESTSCRIPT)
+
+clean-test:
+	rm -f $(TESTCSV)
 
 clean-build:
 	rm -fr build/
@@ -58,7 +66,7 @@ coverage:
 	coverage run $(TESTSCRIPT)
 	coverage report --include="coinmetrics/*" -m
 
-clean: clean-build clean-pyc clean-docs
+clean: clean-build clean-pyc clean-docs clean-test
 
 dist: test clean
 	python setup.py sdist
