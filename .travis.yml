@@ -13,8 +13,8 @@ matrix:
       language: shell
       before_install: choco install python make
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
-install: pip3 install -r requirements.txt
-script: make test
+install: pip3 install -r requirements-test.txt
+script: make coverage
 
 
 
