@@ -3,18 +3,8 @@
 Pro
 ---
 
-.. note:: Currently, these methods and untested.
+.. note:: The :samp:`Pro` class of APIs are planned but not currently available through this API library. For information regarding the development of the ProAPIs, please see the related `GitHub Issue`_.
 
-The :samp:`Pro` class is an extensions of the :ref:`community` class, which also means it inherits all methods prevously defined in :ref:`community` and :ref:`base`.
 
-Primary Methods
-"""""""""""""""
 
-.. autoclass:: coinmetrics.pro.Pro
-    :members: __init__, get_indexes, index_checker, get_index_info
-
-Alias Methods
-"""""""""""""
-
-.. autoclass:: coinmetrics.pro.Pro
-    :members: getindexes, indexes
+.. _GitHub Issue: https://github.com/h4110w33n/coinmetrics/issues/10
