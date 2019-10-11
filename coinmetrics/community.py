@@ -203,7 +203,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "AdrActCnt", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "AdrActCnt", start, end)
 
     #: An alias for :py:func:`get_active_addresses`
     active_addresses, activeaddresses, AdrActCnt = [get_active_addresses] * 3
@@ -220,7 +220,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "BlkCnt", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "BlkCnt", start, end)
 
     #: An alias for :py:func:`get_block_count`
     block_count, blockcount, BlkCnt = [get_block_count] * 3
@@ -234,7 +234,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "BlkSizeMeanByte", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "BlkSizeMeanByte", start, end)
 
     #: An alias for :py:func:`get_mean_block_size`
     get_meanblocksize, meanblocksize, BlkSizeMeanByte = [get_mean_block_size] * 3
@@ -248,7 +248,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "CapMVRVCur", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "CapMVRVCur", start, end)
 
     #: An alias for :py:func:`get_mvrv_cur`
     get_mvrvcur, mvrvcur, CapMVRVCur = [get_mvrv_cur] * 3
@@ -263,7 +263,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "CapRealUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "CapRealUSD", start, end)
 
     #: An alias for :py:func:`get_real_cap`
     get_realcap, real_cap, CapRealUSD = [get_real_cap] * 3
@@ -282,7 +282,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "DiffMean", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "DiffMean", start, end)
 
     #: An alias for :py:func:`get_diff_mean`
     get_diffmean, diff_mean, DiffMean = [get_diff_mean] * 3
@@ -296,7 +296,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "FeeMeanUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "FeeMeanUSD", start, end)
 
     #: An alias for :py:func:`get_fee_mean`
     get_feemean, fee_mean, FeeMeanUSD = [get_fee_mean] * 3
@@ -310,7 +310,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "FeeMedUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "FeeMedUSD", start, end)
 
     #: An alias for :py:func:`get_median_fee`
     get_medianfee, median_fee, FeeMedUSD = [get_median_fee] * 3
@@ -324,7 +324,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "FeeTotUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "FeeTotUSD", start, end)
 
     #: An alias for :py:func:`get_fee_total`
     get_feetotal, fee_total, FeeTotUSD = [get_fee_total] * 3
@@ -340,7 +340,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "IssContNtv", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "IssContNtv", start, end)
 
     #: An alias for :py:func:`get_issued`
     get_unitsissued, units_issued, IssContNtv = [get_units_issued] * 3
@@ -356,7 +356,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "IssContPctAnn", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "IssContPctAnn", start, end)
 
     #: An alias for :py:func:`get_units_issued_ann_pct`
     get_unitsannpct, units_ann_pct, IssContPctAnn = [get_units_issued_ann_pct] * 3
@@ -370,7 +370,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "IssTotUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "IssTotUSD", start, end)
 
     #: An alias for :py:func:`get_units_issued_usd`
     get_unitsissuedusd, units_issued_usd, IssTotUSD = [get_units_issued_usd] * 3
@@ -385,7 +385,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "NVTAdj", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "NVTAdj", start, end)
 
     #: An alias for :py:func:`get_nvt_adj`
     get_nvtadj, nvt_adj, NVTAdj = [get_nvt_adj] * 3
@@ -400,7 +400,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "NVTAdj90", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "NVTAdj90", start, end)
 
     #: An alias for :py:func:`get_nvt_adj_90`
     get_nvtadj90, nvt_adj_90, NVTAdj90 = [get_nvt_adj_90] * 3
@@ -416,7 +416,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "PriceBTC", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "PriceBTC", start, end)
 
     #: An alias for :py:func:`get_price_btc`
     get_pricebtc, price_btc, NVTAdj90 = [get_price_btc] * 3
@@ -431,7 +431,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "PriceUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "PriceUSD", start, end)
 
     #: An alias for :py:func:`get_price_usd`
     get_priceusd, price_usd, PriceUSD = [get_price_usd] * 3
@@ -447,7 +447,8 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "SplyCur", start, end) # pragma: no cover
+
+        return self.get_asset_metric_data(assets, "SplyCur", start, end)
 
     #: An alias for :py:func:`get_cur_sply`
     get_cursply, cur_sply, PriceUSD = [get_cur_sply] * 3
@@ -462,7 +463,8 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxCnt", start, end) # pragma: no cover
+
+        return self.get_asset_metric_data(assets, "TxCnt", start, end)
 
     #: An alias for :py:func:`get_tx_count`
     get_txcount, tx_count, TxCnt = [get_tx_count] * 3
@@ -477,7 +479,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxTfr", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "TxTfr", start, end)
 
     #: An alias for :py:func:`get_txtfr_count`
     get_txtfrcount, txtfr_count, TxTfr = [get_txtfr_count] * 3
@@ -491,7 +493,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxTfrValAdjNtv", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "TxTfrValAdjNtv", start, end)
 
     #: An alias for :py:func:`get_txtfr_val_adj`
     get_txtfrvaladj, txtfr_val_adj, TxTfrValAdjNtv = [get_txtfr_val_adj] * 3
@@ -505,7 +507,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxTfrValAdjUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "TxTfrValAdjUSD", start, end)
 
     #: An alias for :py:func:`get_txtfr_val_adj_usd`
     get_txtfrvaladj, txtfr_val_adj, TxTfrValAdjUSD = [get_txtfr_val_adj] * 3
@@ -520,7 +522,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxTfrValMeanNtv", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "TxTfrValMeanNtv", start, end)
 
     #: An alias for :py:func:`get_txtfr_val_mean`
     get_txtfrvalmean, txtfr_val_mean, TxTfrValMeanNtv = [get_txtfr_val_mean] * 3
@@ -535,7 +537,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxTfrValMeanUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "TxTfrValMeanUSD", start, end)
 
     #: An alias for :py:func:`get_txtfr_val_mean_usd`
     get_txtfrvalmeanusd, txtfr_val_mean_usd, TxTfrValMeanUSD = [get_txtfr_val_mean_usd] * 3
@@ -550,7 +552,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxTfrValMedNtv", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "TxTfrValMedNtv", start, end)
 
     #: An alias for :py:func:`get_txtfr_val_med`
     get_txtfrvalmed, txtfr_val_med, TxTfrValMedNtv = [get_txtfr_val_med] * 3
@@ -565,7 +567,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxTfrValMedUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "TxTfrValMedUSD", start, end)
 
     #: An alias for :py:func:`get_txtfr_val_med_usd`
     get_txtfrvalmedusd, txtfr_val_med_usd, TxTfrValMedUSD = [get_txtfr_val_med_usd] * 3
@@ -579,7 +581,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxTfrValNtv", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "TxTfrValNtv", start, end)
 
     #: An alias for :py:func:`get_txtfr_val`
     get_txtfrval, txtfr_val, TxTfrValNtv = [get_txtfr_val] * 3
@@ -594,7 +596,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "TxTfrValUSD", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "TxTfrValUSD", start, end)
 
     #: An alias for :py:func:`get_txtfr_val_usd`
     get_txtfrvalusd, txtfr_val_usd, TxTfrValUSD = [get_txtfr_val_usd] * 3
@@ -608,7 +610,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "VtyDayRet180d", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "VtyDayRet180d", start, end)
 
     #: An alias for :py:func:`get_vty_ret_180d`
     get_vtyret180d, vty_ret_180d, VtyDayRet180d = [get_vty_ret_180d] * 3
@@ -621,7 +623,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "VtyDayRet30d", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "VtyDayRet30d", start, end)
 
     #: An alias for :py:func:`get_vty_ret_30d`
     get_vtyret30d, vty_ret_30d, VtyDayRet30d = [get_vty_ret_30d] * 3
@@ -635,7 +637,7 @@ class Community(Base):
 
         :Parameters: See see :py:func:`get_asset_metric_data` for parameter and return details.
         """
-        return self.get_asset_metric_data(assets, "VtyDayRet60d", start, end) # pragma: no cover
+        return self.get_asset_metric_data(assets, "VtyDayRet60d", start, end)
 
     #: An alias for :py:func:`get_vty_ret_60d`
     get_vtyret60d, vty_ret_60d, VtyDayRet60d = [get_vty_ret_60d] * 3
