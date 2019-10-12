@@ -66,6 +66,9 @@ coverage:
 	coverage run $(TESTSCRIPT)
 	coverage report --include="coinmetrics/*" -m
 
+coverage-upload: coverage
+	codecov
+
 clean: clean-build clean-pyc clean-docs clean-test
 
 dist: test clean
