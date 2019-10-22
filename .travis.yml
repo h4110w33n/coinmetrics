@@ -11,7 +11,7 @@ matrix:
     - name: "Python 3.7.3 on Windows"
       os: windows
       language: shell
-      before_install: choco install python make
+      before_install: choco install python pip make
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 install: pip3 install -r requirements-tests.txt
 script: make coverage-upload
