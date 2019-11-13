@@ -3,6 +3,7 @@
 Setup for Coin Metrics API.
 """
 import os
+from coinmetrics import __version__
 from setuptools import setup
 
 with open('requirements.txt') as f:
@@ -13,7 +14,7 @@ with open('README.md') as r:
 
 setup(
 	name='coinmetrics',
-	version='0.2.4',
+	version=__version__,
 	author="Robert Rice",
 	author_email="h4110w33n@gmail.com",
 	url='https://github.com/h4110w33n/coinmetrics',
