@@ -15,7 +15,6 @@ with open('README.md') as r:
 setup(
 	name='coinmetrics',
 	version=__version__,
-	version='0.2.3',
 	author="Robert Rice",
 	author_email="h4110w33n@gmail.com",
 	url='https://github.com/h4110w33n/coinmetrics',
