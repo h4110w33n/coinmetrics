@@ -10,7 +10,7 @@ with open('requirements.txt') as f:
     required = f.read().splitlines()
 
 with open('README.md') as r:
-	long_description = r.read().splitlines()
+	long_description = r.read()
 
 setup(
 	name='coinmetrics',
