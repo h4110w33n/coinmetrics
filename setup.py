@@ -3,19 +3,24 @@
 Setup for Coin Metrics API.
 """
 import os
+from coinmetrics import __version__
 from setuptools import setup
 
 with open('requirements.txt') as f:
     required = f.read().splitlines()
 
+with open('README.md') as r:
+	long_description = r.read()
+
 setup(
 	name='coinmetrics',
-	version='0.2.3',
+	version=__version__,
 	author="Robert Rice",
 	author_email="h4110w33n@gmail.com",
 	url='https://github.com/h4110w33n/coinmetrics',
 	description='An unofficial library to standardize queries to the Coin Metrics (coinmetrics.io) API.',
-	long_description='An unofficial library to standardize queries to the Coin Metrics (coinmetrics.io) API.',
+	long_description=long_description,
+	long_description_content_type='text/markdown',
 	keywords=['coinmetrics', 'crypto', 'cryptocurrency', 'rest', 'api'],
 	classifiers=[
 		'Development Status :: 5 - Production/Stable',

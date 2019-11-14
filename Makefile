@@ -6,12 +6,14 @@ BUILDDIR      = build
 # Test options
 TESTSCRIPT    ?= test.py
 LEGTESTSCRIPT ?= test-legacy.py
+TESTCSV		  ?= test.csv
 
 .PHONY: help lint docs clean-docs test test-legacy clean-build clean-pyc clean dist release install
 
 help:
 	@echo "Available Options:"
 	@echo "    lint: lint evertyhing in the coinmetrics directory."
+	@echo "    lint-extras: lint all the other Python files in this repo."
 	@echo "    docs: build the RST documentation for RTD."
 	@echo "    clean-docs: wipe docs clean."
 	@echo "    test: execute unit test in \`$(TESTSCRIPT)\`."
@@ -22,9 +24,13 @@ help:
 	@echo "    clean-build: remove all build artifacts/eggs."
 	@echo "    clean-pyc: remove all caches/pyc's"
 	@echo "    clean: execute all clean actions: clean-build, clean-pyc and clean-docs."
+	@echo "    coverage: generate a report of functions exercised by test.py"
 
 lint:
 	pylint coinmetrics/*.py
+
+lint-extras:
+	pylint test.py
 
 docs:
 	@mkdir -p "$(BUILDDIR)"
@@ -40,6 +46,9 @@ test:
 test-legacy:
 	python3 $(LEGTESTSCRIPT) || python $(LEGTESTSCRIPT)
 
+clean-test:
+	rm -f $(TESTCSV)
+
 clean-build:
 	rm -fr build/
 	rm -fr dist/
@@ -53,7 +62,14 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
-clean: clean-build clean-pyc clean-docs
+coverage:
+	coverage run $(TESTSCRIPT)
+	coverage report --include="coinmetrics/*" -m
+
+coverage-upload: coverage
+	codecov
+
+clean: clean-build clean-pyc clean-docs clean-test
 
 dist: test clean
 	python setup.py sdist
