@@ -6,6 +6,7 @@ import logging
 from .base import Base
 from .errors import InvalidAssetError, InvalidMetricError
 
+
 class Community(Base):
     """
     Coin Metrics API Community Object
@@ -63,7 +64,7 @@ class Community(Base):
             options = {"subset": exchanges}
             self.exchange_checker(exchanges)
         else:
-            options = {}
+            options = {}  # pragma: no cover
         return self._api_query("exchange_info", options)['exchangesInfo']
 
     def get_metric_info(self, metrics=""):
@@ -101,7 +102,7 @@ class Community(Base):
             self.market_checker(markets)
             options = {"subset": markets}
         else:
-            options = {}
+            options = {}  # pragma: no cover
         return self._api_query("market_info", options)['marketsInfo']
 
     def get_asset_metrics(self, asset):
@@ -174,7 +175,7 @@ class Community(Base):
 
         .. _`API reference`: https://docs.coinmetrics.io/api/v2/#operation/getAssetMetricsData
         """
-        #pylint: disable=R0913
+        # pylint: disable=R0913
         if metrics == "all" or None:
             metrics = ','.join(self.get_asset_metrics(asset))
         self.logger.debug("asset: '%s'", asset)
