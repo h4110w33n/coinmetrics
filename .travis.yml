@@ -8,11 +8,11 @@ matrix:
       os: osx
       osx_image: xcode11.2
       language: shell
-    - name: "Python 3.7.4 on Windows"
+    - name: "Python on Windows"
       os: windows
       language: shell
       before_install:
-        - choco install python --version 3.8.0
+        - choco install python
         - python -m pip install --upgrade pip
         - choco install make
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
