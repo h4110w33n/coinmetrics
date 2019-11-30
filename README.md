@@ -1,7 +1,7 @@
 Coin Metrics API for Python
 ===========================
 [![Documentation Status](https://readthedocs.org/projects/coinmetrics/badge/?version=latest)](https://coinmetrics.readthedocs.io/en/latest/?badge=latest)
-[![Build Status](https://travis-ci.org/h4110w33n/coinmetrics.svg?branch=master)](https://travis-ci.org/h4110w33n/coinmetrics)
+[![Build Status](https://travis-ci.com/h4110w33n/coinmetrics.svg?branch=master)](https://travis-ci.com/h4110w33n/coinmetrics)
 [![PyPI version](https://badge.fury.io/py/coinmetrics.svg)](https://badge.fury.io/py/coinmetrics)
 [![codecov](https://codecov.io/gh/h4110w33n/coinmetrics/branch/master/graph/badge.svg)](https://codecov.io/gh/h4110w33n/coinmetrics)
 
