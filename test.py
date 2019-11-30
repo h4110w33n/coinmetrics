@@ -306,12 +306,6 @@ class CommunityAPITests(unittest.TestCase):
         """
         LOG.debug("\n\tFunction: get_exchange_info()")
 
-        LOG.debug("\tTest 0: Executes without arguments/defaults")
-        LOG.debug("\tArgument: asset = None")
-        results = CM.get_exchange_info()
-        self.assertTrue(isinstance(results, list))
-        LOG.debug("\tTest 0: PASS")
-
         LOG.debug("\tArgument: exchange = '%s'", EXCHANGE)
         results = CM.get_exchange_info(EXCHANGE)
 
@@ -409,12 +403,6 @@ class CommunityAPITests(unittest.TestCase):
         4. The correct error is raised when given an invalid exchange
         """
         LOG.debug("\n\tFunction: get_market_info()")
-
-        LOG.debug("\tTest 0: Executes without arguments/defaults")
-        LOG.debug("\tArgument: asset = None")
-        results = CM.get_market_info()
-        self.assertTrue(isinstance(results, list))
-        LOG.debug("\tTest 0: PASS")
 
         LOG.debug("\tArgument: market = '%s'", MARKET)
         results = CM.get_market_info(MARKET)

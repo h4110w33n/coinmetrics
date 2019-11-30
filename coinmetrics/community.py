@@ -63,7 +63,7 @@ class Community(Base):
             options = {"subset": exchanges}
             self.exchange_checker(exchanges)
         else:
-            options = {}
+            options = {}  # pragma: no cover
         return self._api_query("exchange_info", options)['exchangesInfo']
 
     def get_metric_info(self, metrics=""):
@@ -101,7 +101,7 @@ class Community(Base):
             self.market_checker(markets)
             options = {"subset": markets}
         else:
-            options = {}
+            options = {}  # pragma: no cover
         return self._api_query("market_info", options)['marketsInfo']
 
     def get_asset_metrics(self, asset):
