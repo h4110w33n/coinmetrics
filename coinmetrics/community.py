@@ -6,6 +6,7 @@ import logging
 from .base import Base
 from .errors import InvalidAssetError, InvalidMetricError
 
+
 class Community(Base):
     """
     Coin Metrics API Community Object
@@ -174,7 +175,7 @@ class Community(Base):
 
         .. _`API reference`: https://docs.coinmetrics.io/api/v2/#operation/getAssetMetricsData
         """
-        #pylint: disable=R0913
+        # pylint: disable=R0913
         if metrics == "all" or None:
             metrics = ','.join(self.get_asset_metrics(asset))
         self.logger.debug("asset: '%s'", asset)

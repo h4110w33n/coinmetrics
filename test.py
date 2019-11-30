@@ -41,6 +41,7 @@ CSV_OUT = "test.csv"
 
 CM = coinmetrics.Community()
 
+
 class BaseAPITests(unittest.TestCase):
     """
     Tests for the Coinmetrics Base API
@@ -148,6 +149,7 @@ class BaseAPITests(unittest.TestCase):
             self.assertIn(market, results)
         LOG.debug("\tTest 3: Pass")
 
+
 class BaseErrorTests(unittest.TestCase):
     """
     Tests for the Coinmetrics Base API Errors
@@ -223,6 +225,7 @@ class BaseErrorTests(unittest.TestCase):
         LOG.debug("\tArgument: asset = %s, metric = %s", ASSET, METRIC)
         CM.asset_metric_checker(ASSET, METRIC)
         LOG.debug("\tTest 2: PASS")
+
 
 class CommunityAPITests(unittest.TestCase):
     """
@@ -477,7 +480,7 @@ class CommunityAPITests(unittest.TestCase):
         """
         Test fetching metric data.
         """
-        #pylint: disable-msg=too-many-statements
+        # pylint: disable-msg=too-many-statements
         LOG.debug("\n\tFunction: get_asset_metric_data()")
         LOG.debug("\tArgument: asset = '%s'", ASSET)
         LOG.debug("\tArgument: start = '%s'", BEGIN_TIMESTAMP)
@@ -545,6 +548,7 @@ class CommunityAPITests(unittest.TestCase):
         with self.assertRaises(coinmetrics.errors.InvalidMetricError):
             CM.get_metric_info(INVALID_METRIC)
         LOG.debug("\tTest 8: PASS")
+
 
 class UtilsTests(unittest.TestCase):
     """
@@ -644,6 +648,7 @@ class UtilsTests(unittest.TestCase):
         LOG.debug("\tArgument: file = '%s'", CSV_OUT)
         csv(results, CSV_OUT)
         LOG.debug("\tTest 1: PASS")
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
