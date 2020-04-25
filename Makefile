@@ -18,7 +18,6 @@ help:
 	@echo "    clean-docs: wipe docs clean."
 	@echo "    test: execute unit test in \`$(TESTSCRIPT)\`."
 	@echo "    test-legacy: execute unit test in \`$(LEGTESTSCRIPT)\`."
-	@echo "    dist: install install the \`coinmetrics\` package to the local environment."
 	@echo "    dist: build the \`coinmetrics\` package (no upload)"	
 	@echo "    release: build the \`coinmetrics\` package then upload to PyPi."
 	@echo "    clean-build: remove all build artifacts/eggs."
