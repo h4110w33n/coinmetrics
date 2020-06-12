@@ -2,14 +2,12 @@
 Coin Metrics API Community Module Definitions
 """
 
-import logging
 from .base import Base
 from .errors import InvalidAssetError, InvalidMetricError
 
-
 class Community(Base):
     """
-    Coin Metrics API Community Object
+    Coin Metrics API Pro Object
     """
 
     # Due to the conveniance methods, we trigger R0904: too-many-public-methods
@@ -25,7 +23,7 @@ class Community(Base):
         :type api_key: str, optional
         """
         super().__init__()
-        self.logger = logging.getLogger(__name__)
+        self.headers = {"Authorization": api_key} if api_key != '' else {}
 
     def get_asset_info(self, assets=""):
         """

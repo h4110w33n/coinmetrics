@@ -19,7 +19,8 @@ def cm_to_pandas(data):
     :return: Pandas dataframe form of original object.
     :rtype: pandas dataframe
     """
-    import pandas as pd
+    # Prevents a hard Pandas requirment for those who do not need it.
+    import pandas as pd  # pylint: disable=C0415
     if not isinstance(data, pd.DataFrame):
         raw_index = [row['time'] for row in data['series']]
         raw_values = [row['values'] for row in data['series']]

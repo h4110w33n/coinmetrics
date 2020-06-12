@@ -6,6 +6,9 @@ Usage
 Fetching Data
 """""""""""""
 
+Community API
+'''''''''''''
+
 .. code-block:: python
   
   # API Setup #################################################################
@@ -34,6 +37,25 @@ Fetching Data
   end_timestamp = "2019-01-08"  # The `datetime` type is also accepted
   asset_data = cm.get_asset_data_for_time_range(asset, metric, begin_timestamp, end_timestamp)
   print("data given timerange:\n", asset_data)
+
+Pro API
+'''''''
+
+.. code-block:: python
+  # API Setup #################################################################
+  
+  # Import the API
+  import coinmetrics
+
+  # Initialize a reference object, in this case `cm` for the Pro API
+  cm = coinmetrics.Pro(api_key='your-api-key-here')
+
+  # Usage Examples ############################################################
+
+  # Fetch Index Values
+  index = "cmbibtc"
+  index_info = get_index_info(index)
+  print("available index information:\n", index_info)
 
 Transforming Data
 """""""""""""""""
