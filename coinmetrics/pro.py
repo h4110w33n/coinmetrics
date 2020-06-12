@@ -6,7 +6,7 @@ from .community import Community
 
 class Pro(Community):
     """
-    Coin Metrics API Community Object
+    Coin Metrics API Pro Object
     """
 
     def __init__(self, api_key=""):

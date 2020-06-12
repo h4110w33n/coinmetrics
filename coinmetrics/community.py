@@ -7,7 +7,7 @@ from .errors import InvalidAssetError, InvalidMetricError
 
 class Community(Base):
     """
-    Coin Metrics API Pro Object
+    Coin Metrics API Community Object
     """
 
     # Due to the conveniance methods, we trigger R0904: too-many-public-methods
