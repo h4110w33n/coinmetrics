@@ -25,7 +25,7 @@ class Base:
         """
         self.logger = logging.getLogger(__name__)
         self.host_url = 'https://community-api.coinmetrics.io/v2/'
-        self.headers = {"api_key": api_key} if api_key != '' else {}
+        self.headers = {"Authorization": api_key} if api_key != '' else {}
 
     def _api_query(self, endpoint, options=None):
         """
