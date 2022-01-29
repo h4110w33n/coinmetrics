@@ -3,7 +3,9 @@ Coin Metrics API Module Includes
 """
 
 from .base import Base
-from .community import Community
-from .utils import cm_to_pandas, normalize, csv
+from .catalog import Catalog
+# from .timeseries import Timeseries
+# from .blockchain import Blockchain
+# from .tools import Tools
 
-__version__ = '0.2.5'
+__version__ = '0.4.2022-01-28'
