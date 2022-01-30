@@ -6,12 +6,11 @@ Coin Metrics API Module Includes
 # TODO: Consider an `All` or similar apparatus.
 # from .base import Base
 from .catalog import Catalog
+
 # from .timeseries import Timeseries
 # from .blockchain import Blockchain
 # from .tools import Tools
 
-__all__ = [
-	'Catalog'
-]
+__all__ = ["Catalog"]
 
-__version__ = '0.4.2022-01-28'
+__version__ = "0.4.2022-01-28"
