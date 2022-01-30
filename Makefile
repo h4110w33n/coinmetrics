@@ -31,6 +31,10 @@ lint:
 lint-extras:
 	pylint test.py
 
+black:
+	black coinmetrics/*.py
+	black test.py
+
 docs:
 	@mkdir -p "$(BUILDDIR)"
 	@mkdir -p {"$(BUILDDIR)/doctrees","$(BUILDDIR)/html"}
