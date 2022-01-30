@@ -13,7 +13,7 @@ class Catalog(Base):
         """
         super().__init__()
         self.logger = logging.getLogger(__name__)
-        self.base_endpoint = "catalog"
+        self.catalog_base = "catalog-all"
 
     def assets(self, assets="", include="", exclude=""):
         """
@@ -35,7 +35,7 @@ class Catalog(Base):
         self.logger.debug("Assets: '%s'", assets)
         self.logger.debug("Include: '%s'", include)
         self.logger.debug("Exclude: '%s'", exclude)
-        endpoint = f"{self.base_endpoint}/assets"
+        endpoint = f"{self.catalog_base}/assets"
         options = {}
         assets and (options.update({"assets": assets}))
         include and (options.update({"include": include}))
@@ -61,7 +61,7 @@ class Catalog(Base):
         self.logger.debug("Fetching metrics.")
         self.logger.debug("Metrics: '%s'", metrics)
         self.logger.debug("Reviewable: '%s'", reviewable)
-        endpoint = f"{self.base_endpoint}/metrics"
+        endpoint = f"{self.catalog_base}/metrics"
         options = {}
         metrics and (options.update({"metrics": metrics}))
         reviewable and (options.update({"reviewable": reviewable}))
@@ -82,10 +82,290 @@ class Catalog(Base):
         """
         self.logger.debug("Fetching exchanges.")
         self.logger.debug("Exchanges: '%s'", exchanges)
-        endpoint = f"{self.base_endpoint}/exchanges"
+        endpoint = f"{self.catalog_base}/exchanges"
         options = {}
         exchanges and (options.update({"exchanges": exchanges}))
         return self._api_query(endpoint, options)
 
-    #: An alias for :py:func:`metrics`
+    #: An alias for :py:func:`exchanges`
     get_exchanges = exchanges
+
+    def asset_exchanges(self, exchange_assets=""):
+        """
+        Returns a list of available exchange-asset pairs along with information for them like metrics and time ranges of available data.
+
+        :param exchange_assets: Comma separated list of exchange-assets. By default, all exchange-assets pairs are returned.
+        :type exchange_assets: str, optional
+
+        :return: Dictionary who's 'data' element is a list of dictionaries with the request exchange-asset(s) information.
+        :rtype: dict
+        """
+        self.logger.debug("Fetching exchange assets.")
+        self.logger.debug("Exchange Assets: '%s'", exchange_assets)
+        endpoint = f"{self.catalog_base}/exchange-assets"
+        options = {}
+        exchange_assets and (options.update({"exchange_assets": exchange_assets}))
+        return self._api_query(endpoint, options)
+
+    #: An alias for :py:func:`asset_exchanges`
+    get_asset_exchanges = asset_exchanges
+
+    def pairs(self, pairs=""):
+        """
+        Returns a list of all supported asset pairs along with information for them like metrics and time ranges of available data.
+
+        :param pairs: Comma separated list of asset pairs. By default, all asset pairs are returned.
+        :type pairs: str, optional
+
+        :return: Dictionary who's 'data' element is a list of dictionaries with the request asset-pairs information.
+        :rtype: dict
+        """
+        self.logger.debug("Fetching asset pairs.")
+        self.logger.debug("Pairs: '%s'", pairs)
+        endpoint = f"{self.catalog_base}/pairs"
+        options = {}
+        pairs and (options.update({"pairs": pairs}))
+        return self._api_query(endpoint, options)
+
+    #: An alias for :py:func:`pairs`
+    get_pairs, get_asset_pairs, asset_pairs = [pairs] * 3
+
+    def institutions(self, institutions=""):
+        """
+        Returns a list of all support institutions along with information for them like metrics and time ranges of available data.
+
+        :param institutions: Comma separated list of institutions. By default, all institutions are returned.
+        :type institutions: str, optional
+
+        :return: Dictionary who's 'data' element is a list of dictionaries with the request institution information.
+        :rtype: dict
+        """
+        self.logger.debug("Fetching institutions.")
+        self.logger.debug("Institutions: '%s'", institutions)
+        endpoint = f"{self.catalog_base}/institutions"
+        options = {}
+        institutions and (options.update({"institutions": institutions}))
+        return self._api_query(endpoint, options)
+
+    #: An alias for :py:func:`institutions`
+    get_institutions = institutions
+
+    def markets(self, markets="", exchange="", market_type="", base="", quote="", asset="", symbol="", include="", exclude="", limit=""):
+        """
+        Returns a list of all supported markets along with time ranges of available data.
+
+        :param markets: Comma separated list of markets. By default all markets are returned.
+        :type markets: str, optional
+
+        :param exchange: Unique name of an exchange.
+        :type exchange: str, optional
+
+        :param market_type: Type of markets. Enum: "spot", "future", "option"
+        :type market_type: str, optional
+
+        :param base: Base asset of markets.
+        :type base: str, optional
+
+        :param quote: Quote asset of markets.
+        :type quote: str, optional
+
+        :param asset: Any asset of markets.
+        :type asset: str, optional
+
+        :param symbol: Symbol of derivative markets, full instrument name.
+        :type symbol: str, optional
+
+        :param include: Comma separated list of fields to include in response. Supported values are trades, orderbooks, quotes, candles, funding_rates, openinterest, liquidations. Included by default if omitted.
+        :type include: str, optional
+
+        :param exclude: Comma separated list of fields to exclude from response. Supported values are trades, orderbooks, quotes, candles, funding_rates, openinterest, liquidations. Included by default if omitted.
+        :type exclude: str, optional
+
+        :param limit: Limit of response items. none means no limit.
+        :type limit: str, optional
+
+        :return: Dictionary who's 'data' element is a list of dictionaries with the request markets information.
+        :rtype: dict
+        """
+        self.logger.debug("Fetching markets.")
+        endpoint = f"{self.catalog_base}/markets"
+        options = {}
+        self.logger.debug("Markets: '%s'", markets)
+        markets and (options.update({"markets": markets}))
+        self.logger.debug("Exchange: '%s'", exchange)
+        exchange and (options.update({"exchange": exchange}))
+        self.logger.debug("Type: '%s'", market_type)
+        market_type and (options.update({"type": market_type}))
+        self.logger.debug("Base: '%s'", base)
+        base and (options.update({"base": base}))
+        self.logger.debug("Quote: '%s'", quote)
+        quote and (options.update({"quote": quote}))
+        self.logger.debug("Asset: '%s'", asset)
+        asset and (options.update({"asset": asset}))
+        self.logger.debug("Symbol: '%s'", symbol)
+        symbol and (options.update({"symbol": symbol}))
+        self.logger.debug("Include: '%s'", include)
+        include and (options.update({"include": include}))
+        self.logger.debug("Exclude: '%s'", exclude)
+        exclude and (options.update({"exclude": exclude}))
+        self.logger.debug("Limit: '%s'", limit)
+        limit and (options.update({"limit": limit}))
+        return self._api_query(endpoint, options)
+
+    #: An alias for :py:func:`markets`
+    get_markets = markets
+
+    def market_candles(self, markets="", exchange="", market_type="", base="", quote="", asset="", symbol="", limit=""):
+        """
+        Returns a list of all markets with candles support along with time ranges of available data per candle duration.
+
+        :param markets: Comma separated list of markets. By default all markets are returned.
+        :type markets: str, optional
+
+        :param exchange: Unique name of an exchange.
+        :type exchange: str, optional
+
+        :param market_type: Type of markets. Enum: "spot", "future", "option"
+        :type market_type: str, optional
+
+        :param base: Base asset of markets.
+        :type base: str, optional
+
+        :param quote: Quote asset of markets.
+        :type quote: str, optional
+
+        :param asset: Any asset of markets.
+        :type asset: str, optional
+
+        :param symbol: Symbol of derivative markets, full instrument name.
+        :type symbol: str, optional
+
+        :param limit: Limit of response items. none means no limit.
+        :type limit: str, optional
+
+        :return: Dictionary who's 'data' element is a list of dictionaries with the request market candles information.
+        :rtype: dict
+        """
+        self.logger.debug("Fetching market candles.")
+        endpoint = f"{self.catalog_base}/market-candles"
+        options = {}
+        self.logger.debug("Markets: '%s'", markets)
+        markets and (options.update({"markets": markets}))
+        self.logger.debug("Exchange: '%s'", exchange)
+        exchange and (options.update({"exchange": exchange}))
+        self.logger.debug("Type: '%s'", market_type)
+        market_type and (options.update({"type": market_type}))
+        self.logger.debug("Base: '%s'", base)
+        base and (options.update({"base": base}))
+        self.logger.debug("Quote: '%s'", quote)
+        quote and (options.update({"quote": quote}))
+        self.logger.debug("Asset: '%s'", asset)
+        asset and (options.update({"asset": asset}))
+        self.logger.debug("Symbol: '%s'", symbol)
+        symbol and (options.update({"symbol": symbol}))
+        self.logger.debug("Limit: '%s'", limit)
+        limit and (options.update({"limit": limit}))
+        return self._api_query(endpoint, options)
+
+    #: An alias for :py:func:`market_candles`
+    get_market_candles = market_candles
+
+    def market_metrics(self, markets="", exchange="", market_type="", base="", quote="", asset="", symbol="", limit=""):
+        """
+        Returns a list of all markets with market metrics support along with time ranges of available data per metric.
+
+        :param markets: Comma separated list of markets. By default all markets are returned.
+        :type markets: str, optional
+
+        :param exchange: Unique name of an exchange.
+        :type exchange: str, optional
+
+        :param market_type: Type of markets. Enum: "spot", "future", "option"
+        :type market_type: str, optional
+
+        :param base: Base asset of markets.
+        :type base: str, optional
+
+        :param quote: Quote asset of markets.
+        :type quote: str, optional
+
+        :param asset: Any asset of markets.
+        :type asset: str, optional
+
+        :param symbol: Symbol of derivative markets, full instrument name.
+        :type symbol: str, optional
+
+        :param limit: Limit of response items. none means no limit.
+        :type limit: str, optional
+
+        :return: Dictionary who's 'data' element is a list of dictionaries with the request market metric information.
+        :rtype: dict
+        """
+        self.logger.debug("Fetching market metrics.")
+        endpoint = f"{self.catalog_base}/market-metrics"
+        options = {}
+        self.logger.debug("Markets: '%s'", markets)
+        markets and (options.update({"markets": markets}))
+        self.logger.debug("Exchange: '%s'", exchange)
+        exchange and (options.update({"exchange": exchange}))
+        self.logger.debug("Type: '%s'", market_type)
+        market_type and (options.update({"type": market_type}))
+        self.logger.debug("Base: '%s'", base)
+        base and (options.update({"base": base}))
+        self.logger.debug("Quote: '%s'", quote)
+        quote and (options.update({"quote": quote}))
+        self.logger.debug("Asset: '%s'", asset)
+        asset and (options.update({"asset": asset}))
+        self.logger.debug("Symbol: '%s'", symbol)
+        symbol and (options.update({"symbol": symbol}))
+        self.logger.debug("Limit: '%s'", limit)
+        limit and (options.update({"limit": limit}))
+        return self._api_query(endpoint, options)
+
+    #: An alias for :py:func:`market_metrics`
+    get_market_metrics = market_metrics
+
+    def indexes(self, indexes=""):
+        """
+        Returns a list of all supported indexes along with time ranges of available data.
+
+        :param indexes: Comma separated list of indexes. By default all assets are returned.
+        :type indexes: str, optional
+
+        :return: Dictionary who's 'data' element is a list of dictionaries with the request index information.
+        :rtype: dict
+        """
+        self.logger.debug("Fetching indexes.")
+        self.logger.debug("Indexes: '%s'", indexes)
+        endpoint = f"{self.catalog_base}/indexes"
+        options = {}
+        indexes and (options.update({"indexes": indexes}))
+        return self._api_query(endpoint, options)
+
+    #: An alias for :py:func:`indexes`
+    get_indexes = indexes
+
+    def asset_alerts(self, assets="", alerts=""):
+        """
+        Returns a list of all supported asset alerts along with their descriptions, thresholds and constituents.
+
+        :param indexes: Comma separated list of assets. By default all assets are returned.
+        :type indexes: str, optional
+
+        :param alerts: Comma separated list of asset alert names. By default all asset alerts are returned.
+        :type alerts: str, optional
+
+        :return: Dictionary who's 'data' element is a list of dictionaries with the request index information.
+        :rtype: dict
+        """
+        self.logger.debug("Fetching asset alerts.")
+        self.logger.debug("Assets: '%s'", assets)
+        self.logger.debug("Alerts: '%s'", alerts)
+        endpoint = f"{self.catalog_base}/alerts"
+        options = {}
+        assets and (options.update({"assets": assets}))
+        alerts and (options.update({"alerts": alerts}))
+        return self._api_query(endpoint, options)
+
+    #: An alias for :py:func:`indexes`
+    get_asset_alerts = asset_alerts
