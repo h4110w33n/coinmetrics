@@ -27,20 +27,10 @@ class Catalog(Base):
         Returns a list of available assets along with information for them like metrics, markets,
         exchanges and time ranges of available data.
 
-        :param assets: Comma separated list of assets. By default all assets are returned.
-        :type assets: str, optional
+        :param: See `External Docs`_ for further details
+        :return: See `External Docs`_ for further details
 
-        :param include: Comma separated list of fields to include in response. Supported values
-                        are `metrics`, `markets`, `exchanges`.
-        :type include: str, optional
-
-        :param exclude: Comma separated list of fields to exclude from response. Supported values
-                        are `metrics`, `markets`, `exchanges`.
-        :type exclude: str, optional
-
-        :return: Dictionary who's 'data' element is a list of dictionaries with the request
-                 asset(s) information.
-        :rtype: dict
+        .. _`External Docs`: https://docs.coinmetrics.io/api/v4/#operation/getCatalogAssets
         """
         self.logger.debug("Fetching assets.")
         self.logger.debug("Assets: '%s'", assets)

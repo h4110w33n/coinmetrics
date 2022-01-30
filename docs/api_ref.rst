@@ -4,7 +4,7 @@ API Reference
 =============
 The Coin Metrics API provides discovery mechanisms, network, exchange, and asset data via a direct JSON REST API. This module acts as a client interface.
 
-The :ref:`base` and :ref:`community` APIs are available to all users without an API key. The :ref:`pro` API does require an API key that is only obtainable though `CM Network Data Pro`_.
+The :ref:`base` and :ref:`timeseries` APIs are available to all users without an API key. The :ref:`pro` API does require an API key that is only obtainable though `CM Network Data Pro`_.
 
 .. _CM Network Data Pro: https://coinmetrics.io/cm-network-data-pro/
 
@@ -20,7 +20,5 @@ The :ref:`base` and :ref:`community` APIs are available to all users without an 
    :caption: Class and Method Definitions:
 
    base
-   community
-   pro
-   utils
-
+   catalog
+   timeseries

@@ -19,7 +19,7 @@ from coinmetrics import __version__
 # -- Project information -----------------------------------------------------
 
 project = 'coinmetrics'
-copyright = '2019, Robert Rice'
+copyright = '2022, Robert Rice'
 author = 'Robert Rice'
 
 # The full version, including alpha/beta/rc tags

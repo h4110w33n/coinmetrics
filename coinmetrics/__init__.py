@@ -6,8 +6,7 @@ Coin Metrics API Module Includes
 # TODO: Consider an `All` or similar apparatus.
 # from .base import Base
 from .catalog import Catalog
-
-# from .timeseries import Timeseries
+from .timeseries import Timeseries
 # from .blockchain import Blockchain
 # from .tools import Tools
 

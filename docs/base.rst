@@ -10,12 +10,9 @@ Primary Methods
 """""""""""""""
 
 .. autoclass:: coinmetrics.base.Base
-    :members: __init__, _api_query, get_assets, get_metrics, get_exchanges, get_markets, asset_checker, metric_checker, exchange_checker, market_checker, timestamp_checker
+    :members: _api_query
 
 Alias Methods
 """""""""""""
 
-A group of alternative methods that function identically to the references functions above. This is to support any legacy API method names.
-
-.. autoclass:: coinmetrics.base.Base
-	:members: get_supported_assets, assets, getmetrics, metrics, getexchanges, exchange, getmarkets, markets
+There are no alias methods from the :ref:`base` class.
